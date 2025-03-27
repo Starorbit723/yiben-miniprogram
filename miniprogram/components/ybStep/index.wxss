@@ -1,0 +1,44 @@
+.yb-step {
+  position: relative;
+  display: block;
+  height: 140rpx;
+  margin: 0 auto;
+  text-align: center;
+}
+.yb-line{
+  position: absolute;
+  top: 42rpx;
+  height: 2rpx;
+}
+.yb-step-text{
+  float: left;
+  text-align: center;
+}
+.yb-step-text .text{
+  font-size: 24rpx;
+  color: #FFF;
+}
+.yb-step-text .icon{
+  position: relative;
+  margin: 30rpx auto 20rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.yb-step-text .icon image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 30rpx;
+  height: 30rpx;
+}
+.yb-step-text .icon .point{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 30rpx;
+  height: 30rpx;
+  background-color: #FFF;
+  border-radius: 50%;
+}

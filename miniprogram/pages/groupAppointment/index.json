@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "yb-button": "/components/ybButton/index",
+    "yb-step": "/components/ybStep/index"
+  }
+}

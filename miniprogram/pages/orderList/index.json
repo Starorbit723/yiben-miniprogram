@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "yb-button": "/components/ybButton/index",
+    "yb-order-status": "/components/ybOrderStatus/index"
+  }
+}

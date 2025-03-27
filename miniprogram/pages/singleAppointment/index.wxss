@@ -1,0 +1,65 @@
+/**index.wxss**/
+
+page {
+  background-color: #ec4b7d;
+}
+.container {
+  position: relative;
+  width: 100% - 80rpx;
+  padding: 40rpx 0;
+  font-family: '黑体';
+}
+.page-title{
+  color: #FFF;
+  font-weight: 700;
+  font-size: 34rpx;
+  text-align: center;
+}
+.form-content{
+  margin: 60rpx auto 0;
+  padding: 0 60rpx 0 60rpx;
+}
+.input-box{
+  height: 70rpx;
+  margin-bottom: 40rpx;
+}
+.input-box .label{
+  width: 120rpx;
+  float: left;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #FFF;
+  font-weight: 700;
+  font-size: 28rpx;
+  margin-right: 30rpx;
+}
+.yb-input{
+  float: left;
+  display: block;
+  width: 480rpx;
+  height: 70rpx;
+  line-height: 72rpx;
+  background-color: #FFF;
+  border-radius: 35rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+.yb-picker{
+  float: left;
+  display: block;
+  padding: 0;
+  text-align: center;
+  width: 480rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: #FFF;
+  border-radius: 35rpx;
+  font-size: 30rpx;
+}
+.map-content{
+  width: 630rpx;
+  margin: 0 auto;
+}
+.ensure-btn{
+  margin: 70rpx auto 0;
+}

@@ -1,0 +1,137 @@
+/**index.wxss**/
+
+page {
+  /* padding-top: 54rpx; */
+  padding-bottom: 60rpx;
+  background-color: #f4f4f4;
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+/** banner **/
+.banner-content{
+  width: 100%;
+  height: 400rpx;
+}
+.swiper-box{
+  height: 400rpx;
+}
+.swiper-item{
+  height: 400rpx;
+}
+.swiper-img{
+  width: 100%;
+  height: 400rpx;
+}
+
+/** 导航 **/
+.nav-content{
+  width: 96%;
+  margin: 25rpx auto 0;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.nav-top{
+  width: 100% - 48rpx;
+  height: 60rpx;
+  padding: 0 24rpx;
+  background: #ec4b7d;
+}
+.nav-top-tips{
+  float: left;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #FFF;
+  font-size: 22rpx;
+}
+.login-btn{
+  float: right;
+  margin-top: 10rpx;
+}
+.nav-bottom{
+  width: 94%;
+  height: 205rpx;
+  padding: 35rpx 3% 0;
+  background-color: #FFF;
+}
+.nav-item{
+  float: left;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+}
+.nav-item:nth-child(1) .nav-icon{
+  background-color: #0fa7be;
+}
+.nav-item:nth-child(2) .nav-icon{
+  background-color: #ff7e06;
+}
+.nav-item:nth-child(3) .nav-icon{
+  background-color: #5961d5;
+}
+.nav-item:nth-child(4) .nav-icon{
+  background-color: #43c019;
+}
+.nav-item:nth-child(1) .cn-text, .nav-item:nth-child(1) .en-text{
+  color: #0fa7be;
+}
+.nav-item:nth-child(2) .cn-text, .nav-item:nth-child(2) .en-text{
+  color: #ff7e06;
+}
+.nav-item:nth-child(3) .cn-text, .nav-item:nth-child(3) .en-text{
+  color: #5961d5;
+}
+.nav-item:nth-child(4) .cn-text, .nav-item:nth-child(4) .en-text{
+  color: #43c019;
+}
+.nav-icon{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.nav-icon .nav-icon-img{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx auto;
+}
+.cn-text{
+  margin-top: 10rpx;
+  font-weight: 700;
+  font-size: 26rpx;
+}
+.en-text{
+  margin-top: 5rpx;
+  font-weight: 700;
+  font-size: 24rpx;
+}
+
+/** 活动 **/
+.activity-content{
+  width: 96%;
+  margin: 25rpx auto 0;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  background-color: #FFF;
+}
+.act-title{
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #ec4b7d;
+  font-weight: 700;
+  text-indent: 20rpx;
+  font-size: 28rpx;
+}
+.act-item{
+  width: 96%;
+  height: 300rpx;
+  margin: 0 auto 25rpx;
+}
+.act-img{
+  width: 100%;
+  height: 300rpx;
+}
+

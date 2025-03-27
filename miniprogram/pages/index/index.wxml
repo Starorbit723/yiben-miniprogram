@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<view class="container">
+  <!--banner-->
+  <view class="banner-content">
+    <swiper class="swiper-box" indicatorDots="true" circular="true" interval="{{interval}}" duration="{{duration}}" autoplay="true" indicator-type="expand" indicator-color="#FFF" indicator-active-color="#ec4b7d">
+        <block wx:for="{{advList}}" wx:key="{{index}}">
+          <swiper-item>
+            <view class="swiper-item">
+              <image class="swiper-img" src="{{item.imgurl}}"></image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <!--nav-->
+  <view class="nav-content">
+    <view class="nav-top">
+      <view class="nav-top-tips">Hey，来跟壹本英语打个招呼，Waiting For You ！</view>
+      <yb-button class="login-btn" btnText="登录/注册" width="130" height="40" fontSize="20"></yb-button>
+    </view>
+    <view class="nav-bottom">
+      <view class="nav-item">
+        <view class="nav-icon">
+          <image class="nav-icon-img" src="../../images/icons/teacher_icon.png"></image>
+        </view>
+        <view class="cn-text">师资介绍</view>
+        <view class="en-text">Teacher</view>
+      </view>
+      <view class="nav-item">
+        <view class="nav-icon">
+          <image class="nav-icon-img" src="../../images/icons/lesson_icon.png"></image>
+        </view>
+        <view class="cn-text">课程介绍</view>
+        <view class="en-text">Lesson</view>
+      </view>
+      <view class="nav-item">
+        <view class="nav-icon">
+          <image class="nav-icon-img" src="../../images/icons/school_icon.png"></image>
+        </view>
+        <view class="cn-text">校区介绍</view>
+        <view class="en-text">School</view>
+      </view>
+      <view class="nav-item">
+        <view class="nav-icon">
+          <image class="nav-icon-img" src="../../images/icons/textbook_icon.png"></image>
+        </view>
+        <view class="cn-text">教材介绍</view>
+        <view class="en-text">Textbook</view>
+      </view>
+    </view>
+  </view>
+  <!--activity-->
+  <view class="activity-content">
+    <view class="act-title">热门活动</view>
+    <view class="act-item" wx:for="{{activityList}}" wx:key="{{index}}">
+      <image class="act-img" src="{{item.imgurl}}"></image>
+    </view>
+  </view>
+</view>

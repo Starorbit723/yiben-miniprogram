@@ -1,0 +1,7 @@
+.yb-button {
+  display: block;
+  margin: 0 auto;
+  background-color: #FFF;
+  color: #ec4b7d;
+  text-align: center;
+}

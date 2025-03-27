@@ -1,0 +1,3 @@
+<view class="yb-button" style="width: {{width}}rpx; height: {{height}}rpx; line-height: {{height}}rpx; font-size: {{fontSize}}rpx; font-weight: {{fontWeight}}; border-radius: {{height / 2}}rpx;">
+  {{btnText}}
+</view>

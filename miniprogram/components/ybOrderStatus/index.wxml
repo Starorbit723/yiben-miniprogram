@@ -1,0 +1,5 @@
+<!--components/ybOrderStatus.wxml-->
+<view class="yb-order-status">
+  <view class="status-title">状态：</view>
+  <view class="status-text" style="color: {{color}};">{{text}}</view>
+</view>

@@ -1,0 +1,11 @@
+<view class="yb-step">
+  <view wx:for="{{duanList}}" wx:key="{{index}}" class="yb-line" style="width:{{duanlength}}%; left:{{item.left}}%; background: {{item.lineColor}};"></view>
+  <view class="yb-step-text" style="width: {{100 / stepList.length}}%;" wx:for="{{stepList}}" wx:key="{{index}}">
+    <view class="icon">
+      <image wx:if="{{(currentStep - 1) >= index}}" src="../../images/icons/yb_gou_icon.png"></image>
+      <view wx:if="{{(currentStep - 1) < index}}" class="point"></view>
+    </view>
+    <view class="text">{{item.text1}}</view>
+    <view class="text">{{item.text2}}</view>
+  </view>
+</view>

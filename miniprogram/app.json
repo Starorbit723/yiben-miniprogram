@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/appointment/index",
+    "pages/singleAppointment/index",
+    "pages/groupAppointment/index",
+    "pages/shareAppointment/index",
+    "pages/otherAppointment/index",
+    "pages/finishGroupAppointment/index",
+    "pages/userCenter/index",
+    "pages/orderList/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ec4b7d",
+    "navigationBarTitleText": "壹本",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "color": "#A2A9B0",
+    "selectedColor": "#ec4b7d",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icons/home_default.png",
+        "selectedIconPath": "images/icons/home_select.png"
+      },
+      {
+        "pagePath": "pages/appointment/index",
+        "text": "预约试听",
+        "iconPath": "images/icons/yuyue_default.png",
+        "selectedIconPath": "images/icons/yuyue_select.png"
+      },
+      {
+        "pagePath": "pages/userCenter/index",
+        "text": "我的",
+        "iconPath": "images/icons/mine_default.png",
+        "selectedIconPath": "images/icons/mine_select.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="user-zone">
+    <view class="headpic"></view>
+    <view class="info-box m1">
+      <view class="title">昵称：</view>
+      <view class="text">拉布拉多·军军</view>
+    </view>
+    <view class="info-box m2">
+      <view class="title">年龄：</view>
+      <view class="text">未填写</view>
+    </view>
+    <view class="info-box m3">
+      <view class="title">积分：</view>
+      <view class="text">8341</view>
+    </view>
+    <view class="btn-zone">
+      <yb-button bindtap="startLogin" btnText="完善信息" width="160" height="46" fontSize="22"></yb-button>
+    </view>
+  </view>
+  <view class="enter-label" style="margin-top: 60rpx;">
+    <view>账号管理</view>
+    <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
+  </view>
+  <view class="enter-label" style="margin-top: 20rpx;"  bindtap="gotoOrderList">
+    <view>我的订单</view>
+    <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
+  </view>
+  <view class="enter-label" style="margin-top: 60rpx;">
+    <view>关于我们</view>
+    <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
+  </view>
+  <view class="enter-label" style="margin-top: 20rpx;">
+    <view>联系我们</view>
+    <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
+  </view>
+  <view class="enter-label" style="margin-top: 20rpx;">
+    <view>用户协议及隐私政策</view>
+    <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+/* components/ybOrderStatus.wxss */
+.yb-order-status {
+  
+}
+.yb-order-status .status-title{
+  display: inline;
+}
+.yb-order-status .status-text{
+  display: inline;
+}

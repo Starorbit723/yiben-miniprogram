@@ -1,0 +1,66 @@
+/* pages/userCenter/index.wxss */
+.container {
+  position: relative;
+  padding: 0 0 200rpx;
+  font-family: '微软雅黑';
+}
+.user-zone{
+  position: relative;
+  padding: 0 40rpx;
+  height: 160rpx;
+  background-color: #ec4b7d;
+  color: #FFF;
+}
+.headpic{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: aliceblue;
+}
+.info-box{
+  position: absolute;
+  left: 200rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 24rpx;
+}
+.info-box.m1{
+  top: 15rpx;
+  left: 200rpx;
+}
+.info-box.m2{
+  top: 50rpx;
+}
+.info-box.m3{
+  top: 85rpx;
+}
+.info-box .title{
+  float: left;
+  width: 90rpx;
+}
+.info-box .text{
+  float: left;
+}
+.btn-zone{
+  position: absolute;
+  right: 40rpx;
+  bottom: 40rpx;
+}
+.enter-label{
+  position: relative;
+  display: block;
+  height: 90rpx;
+  background-color: #FFF;
+  line-height: 90rpx;
+  text-indent: 30rpx;
+  font-size: 28rpx;
+  box-shadow: 0 0 1rpx rgba(0, 0, 0, 0.1);
+}
+.enter-label .icon{
+  display: block;
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  top: 30rpx;
+  right: 40rpx;
+}

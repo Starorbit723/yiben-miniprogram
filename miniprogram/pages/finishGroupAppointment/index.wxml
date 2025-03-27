@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="title">恭喜您参与拼团成功</view>
+  <view class="sub-title">您可以在【我的】-【订单信息】中查看</view>
+  <view class="step-zone">
+    <yb-step stepList="{{stepList}}" currentStep="4"></yb-step>
+  </view>
+  <yb-button class="share-btn" bindtap="gotoUsercenter" btnText="查看我的订单" width="600" height="80" fontSize="34" fontWeight="700"></yb-button>
+  <image class="bg-img" src="../../images/bg_yiben_logo.png"></image>
+</view>
