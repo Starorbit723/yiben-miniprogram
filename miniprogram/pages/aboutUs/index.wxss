@@ -1,0 +1,5 @@
+/* pages/aboutUs/index.wxss */
+page {
+  background-color: #ec4b7d;
+  color: #FFF;
+}

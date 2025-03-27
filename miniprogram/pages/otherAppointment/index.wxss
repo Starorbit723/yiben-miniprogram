@@ -41,7 +41,7 @@ page {
 .yb-input-text{
   float: left;
   display: block;
-  width: 480rpx;
+  width: 470rpx;
   height: 50rpx;
   line-height: 50rpx;
   border-radius: 35rpx;
@@ -71,7 +71,7 @@ page {
 .yb-input{
   float: left;
   display: block;
-  width: 480rpx;
+  width: 470rpx;
   height: 70rpx;
   line-height: 72rpx;
   background-color: #FFF;
@@ -84,7 +84,7 @@ page {
   display: block;
   padding: 0;
   text-align: center;
-  width: 480rpx;
+  width: 470rpx;
   height: 70rpx;
   line-height: 70rpx;
   background-color: #FFF;

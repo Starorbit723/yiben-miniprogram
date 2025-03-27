@@ -36,7 +36,7 @@
 }
 .info-box .title{
   float: left;
-  width: 90rpx;
+  width: 80rpx;
 }
 .info-box .text{
   float: left;

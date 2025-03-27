@@ -1,37 +1,20 @@
-// pages/userCenter/index.js
+// pages/connectUs/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    latitude: 39.890780,
+    longitude: 116.355712,
+    markers: [{
+      id: 1,
+      latitude: 39.890780,
+      longitude: 116.355712,
+      name: '广益大厦'
+    }],
+  },
 
-  },
-  gotoAccount() {
-    wx.navigateTo({
-      url: `/pages/account/index?envId=3`,
-    });
-  },
-  gotoOrderList() {
-    wx.navigateTo({
-      url: `/pages/orderList/index?envId=3`,
-    });
-  },
-  gotoAgreement() {
-    wx.navigateTo({
-      url: `/pages/agreement/index?envId=3`,
-    });
-  },
-  gotoAboutUs() {
-    wx.navigateTo({
-      url: `/pages/aboutUs/index?envId=3`,
-    });
-  },
-  gotoConnectUs() {
-    wx.navigateTo({
-      url: `/pages/connectUs/index?envId=3`,
-    });
-  },
   /**
    * 生命周期函数--监听页面加载
    */

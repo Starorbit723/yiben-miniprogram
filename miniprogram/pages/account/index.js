@@ -1,35 +1,34 @@
-// pages/userCenter/index.js
+// pages/account/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    form: {
+      parentName: '',
+      phoneNumber: '',
+      children: [{
+        studentName: '',
+        age: ''
+      }]
+    },
   },
-  gotoAccount() {
-    wx.navigateTo({
-      url: `/pages/account/index?envId=3`,
+  addChildren() {
+    console.log(this.data.form.children.length);
+    const addIndex = this.data.form.children.length;
+    this.setData({
+      [`form.children[${addIndex}]`]: {
+        studentName: '',
+        age: ''
+      }
     });
   },
-  gotoOrderList() {
-    wx.navigateTo({
-      url: `/pages/orderList/index?envId=3`,
-    });
-  },
-  gotoAgreement() {
-    wx.navigateTo({
-      url: `/pages/agreement/index?envId=3`,
-    });
-  },
-  gotoAboutUs() {
-    wx.navigateTo({
-      url: `/pages/aboutUs/index?envId=3`,
-    });
-  },
-  gotoConnectUs() {
-    wx.navigateTo({
-      url: `/pages/connectUs/index?envId=3`,
+  deleteChildren() {
+    console.log(this.data.form.children);
+    const _list = this.data.form.children.slice(0, -1);
+    this.setData({
+      'form.children': _list
     });
   },
   /**

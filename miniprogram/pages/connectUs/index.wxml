@@ -1,0 +1,19 @@
+<!--pages/connectUs/index.wxml-->
+<view class="container">
+  <view class="title" style="padding-top:40rpx;">我们诚挚地欢迎您来电咨询</view>
+  <view class="title">届时会有专业的老师为您解答</view>
+  <view class="connect" style="padding-top:40rpx;">电话：15611426862</view>
+  <view class="connect">地址：北京市西城区广益大厦C座515号</view>
+  <view class="connect">地铁7号线【广安门内】站下车出A口向北50米</view>
+  <view class="map-content">
+    <map
+      id="myMap"
+      style="width: 100%; height: 200px;"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      show-location
+    ></map>
+  </view>
+  <image class="bg-img" src="../../images/bg_yiben_logo.png"></image>
+</view>
