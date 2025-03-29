@@ -1,4 +1,6 @@
 // pages/account/index.js
+const { validatePhoneNumber, validateUsername, validateAge } = require("../../utils/common.js");
+
 Page({
 
   /**
@@ -14,7 +16,50 @@ Page({
       }]
     },
   },
+  parentNameInput(e) {
+    console.log(e);
+    this.setData({
+      'form.parentName': e.detail.value
+    });
+  },
+  phoneNumberInput(e) {
+    this.setData({
+      'form.phoneNumber': e.detail.value
+    });
+  },
+  nameInput(e) {
+    const index = e.currentTarget.dataset.index;
+    this.setData({
+      [`form.children[${index}].studentName`]: e.detail.value
+    });
+  },
+  ageInput(e) {
+    const index = e.currentTarget.dataset.index;
+    this.setData({
+      [`form.children[${index}].age`]: e.detail.value
+    });
+  },
   addChildren() {
+    const len = this.data.form.children.length;
+    if (len === 3) {
+      wx.showToast({
+        title: '最多只能添加3名子女',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return;
+    }
+    console.log('1222233', this.data.form.children);
+    if (!this.data.form.children[len - 1].studentName || !this.data.form.children[len - 1].age) {
+      wx.showToast({
+        title: '请您先完成上一个学生信息的填写',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return;
+    }
     console.log(this.data.form.children.length);
     const addIndex = this.data.form.children.length;
     this.setData({
@@ -26,10 +71,63 @@ Page({
   },
   deleteChildren() {
     console.log(this.data.form.children);
-    const _list = this.data.form.children.slice(0, -1);
-    this.setData({
-      'form.children': _list
-    });
+    if (this.data.form.children.length >= 2) {
+      const _list = this.data.form.children.slice(0, -1);
+      this.setData({
+        'form.children': _list
+      });
+    }
+  },
+  subimit() {
+    console.log('form', this.data.form);
+    if (!validateUsername(this.data.form.parentName)) {
+      wx.showToast({
+        title: '请确认家长姓名是否有误',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return;
+    }
+    if (!validatePhoneNumber(this.data.form.phoneNumber)) {
+      wx.showToast({
+        title: '请确认手机号是否有误',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return;
+    }
+    for(let i = 0; i < this.data.form.children.length; i++) {
+      if (!this.data.form.children[i].studentName || !this.data.form.children[i].age) {
+        wx.showToast({
+          title: '您还有未填写的信息',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        });
+        return;
+      }
+      if (!validateUsername(this.data.form.children[i].studentName)) {
+        wx.showToast({
+          title: '请确认学生姓名是否有误',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        });
+        return;
+      }
+      if (!validateAge(this.data.form.children[i].age)) {
+        wx.showToast({
+          title: '请确认学生年龄是否有误',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        });
+        return;
+      }
+    }
+    console.log('开始提交');
   },
   /**
    * 生命周期函数--监听页面加载

@@ -1,11 +1,12 @@
 // pages/userCenter/index.js
+const { getWxCode } = require("../../utils/common.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    code: '',
   },
   gotoAccount() {
     wx.navigateTo({
@@ -32,6 +33,9 @@ Page({
       url: `/pages/connectUs/index?envId=3`,
     });
   },
+  getUserInfo(code) {
+    console.log('getUserInfo', code);
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -50,7 +54,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    getWxCode(this.getUserInfo);
   },
 
   /**
