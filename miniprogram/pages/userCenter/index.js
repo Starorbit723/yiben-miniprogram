@@ -6,7 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    canIUseGetUserProfile: false,
     code: '',
+    userInfo: {
+      avatarUrl: "",
+      city: "",
+      country: "",
+      province: "",
+      gender: "",
+      language: "",
+      nickName: "",
+      age: "",
+      point: "",
+    }
   },
   gotoAccount() {
     wx.navigateTo({
@@ -35,12 +47,33 @@ Page({
   },
   getUserInfo(code) {
     console.log('getUserInfo', code);
+    this.setData({
+      code: code
+    })
+    this.getUserProfile();
+  },
+  getUserProfile() {
+    console.log('getUserProfile');
+    wx.getUserProfile({
+      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        const _userinfo = Object.assign(this.data.userInfo, res.userInfo);
+        this.setData({
+          userInfo: _userinfo,
+        });
+        console.log(this.data.userInfo);
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    if (wx.getUserProfile) {
+      this.setData({
+        canIUseGetUserProfile: true
+      })
+    }
   },
 
   /**

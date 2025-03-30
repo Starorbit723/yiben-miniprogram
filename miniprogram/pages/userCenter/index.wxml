@@ -1,21 +1,33 @@
 <!--index.wxml-->
 <view class="container">
   <view class="user-zone">
-    <view class="headpic"></view>
+    <view class="headpic">
+      <image wx:if="{{userInfo.avatarUrl}}" class="img" src="{{userInfo.avatarUrl}}"></image>
+      <image wx:if="{{!userInfo.avatarUrl}}" class="img" src="../../images/avatar.png"></image>
+    </view>
     <view class="info-box m1">
       <view class="title">昵称：</view>
-      <view class="text">拉布拉多·军军</view>
+      <view class="text">
+        <view wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</view>
+        <view wx:if="{{!userInfo.nickName}}">-</view>
+      </view>
     </view>
     <view class="info-box m2">
       <view class="title">年龄：</view>
-      <view class="text">未填写</view>
+      <view class="text">
+        <view wx:if="{{userInfo.age}}"></view>
+        <view wx:if="{{!userInfo.age}}">-</view>
+      </view>
     </view>
     <view class="info-box m3">
       <view class="title">积分：</view>
-      <view class="text">8341</view>
+      <view class="text">
+        <view wx:if="{{userInfo.point}}"></view>
+        <view wx:if="{{!userInfo.point}}">-</view>
+      </view>
     </view>
     <view class="btn-zone">
-      <yb-button bindtap="gotoAccount" btnText="完善信息" width="160" height="46" fontSize="22"></yb-button>
+      <yb-button bindtap="getUserProfile" btnText="立即登录" width="160" height="46" fontSize="22"></yb-button>
     </view>
   </view>
   <view class="enter-label" style="margin-top: 60rpx;" bindtap="gotoAccount">
