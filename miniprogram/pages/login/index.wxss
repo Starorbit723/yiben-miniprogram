@@ -1,0 +1,74 @@
+/* pages/login/index.wxss */
+page {
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.logo-box{
+  padding-top: 220rpx;
+}
+.logo{
+  display: block;
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 10rpx;
+  margin: 0 auto;
+}
+.text{
+  margin: 80rpx auto 0;
+  text-align: center;
+  font-size: 34rpx;
+}
+.login-btn{
+  margin: 200rpx auto 0;
+  width: 500rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #ec4b7d;
+  color: #FFF;
+  text-align: center;
+  border-radius: 10rpx;
+}
+.agreement{
+  margin-top: 50rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.duigou{
+  position: relative;
+  vertical-align: top;
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 5rpx;
+}
+.gou-icon{
+  position: absolute;
+  top: 1rpx;
+  left: 2rpx;
+  width: 36rpx;
+  height: 36rpx;
+  z-index: 5;
+}
+.gou-bg{
+  position: absolute;
+  top: 3rpx;
+  left: 4rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 20rpx;
+  border: 1rpx solid #CCC;
+  z-index: 1;
+}
+.innertxt {
+  vertical-align: top;
+  display: inline;
+}
+.innertxt .xieyi{
+  display: inline;
+  color: #ec4b7d;
+}

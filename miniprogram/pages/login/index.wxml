@@ -1,0 +1,17 @@
+<!--pages/login/index.wxml-->
+<view class="container">
+  <view class="logo-box">
+    <image class="logo" src="../../images/logo.png"></image>
+    <view class="text">欢迎使用壹本小程序，请您先登录</view>
+  </view>
+  <view class="login-btn" bind:tap="doLoginStart">一键登录</view>
+  <view class="agreement">
+    <view class="duigou" bind:tap="clickAgree">
+      <image wx:if="{{isAgree}}" class="gou-icon" src="../../images/icons/yb_gou_icon.png"></image>
+      <view class="gou-bg"></view>
+    </view>
+    <view class="innertxt">
+      已阅读并同意<view class="xieyi" bind:tap="clickToAgreement">《用户协议》</view>和<view class="xieyi" bind:tap="clickToAgreement">《隐私政策》</view>
+    </view>
+  </view>
+</view>
