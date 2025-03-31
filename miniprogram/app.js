@@ -14,6 +14,9 @@ App({
       });
     }
 
-    this.globalData = {};
+    this.globalData = {
+      appid: 'wxe96a5b79479677ca',
+      secret: '03513537d74911474f8ab869970293ff',
+    };
   },
 });

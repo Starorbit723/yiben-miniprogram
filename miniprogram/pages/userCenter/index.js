@@ -1,5 +1,6 @@
 // pages/userCenter/index.js
 const { getWxCode } = require("../../utils/common.js");
+const app = getApp();
 Page({
 
   /**
@@ -51,6 +52,7 @@ Page({
       code: code
     })
     this.getUserProfile();
+    this.getOpenId();
   },
   getUserProfile() {
     console.log('getUserProfile');
@@ -62,6 +64,17 @@ Page({
           userInfo: _userinfo,
         });
         console.log(this.data.userInfo);
+      }
+    })
+  },
+  getOpenId() {
+    const code = this.data.code;
+    const appid = app.globalData.appid;
+    const secret = app.globalData.secret;
+    wx.request({
+      url: `https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=${secret}&js_code=${code}&grant_type=authorization_code`,
+      success:(res)=>{
+        console.log(res);
       }
     })
   },
