@@ -1,0 +1,5 @@
+<!--pages/testPage/index.wxml-->
+<view class="container">
+  <view class="test-btn" bind:tap="testFuction1">测试按钮1</view>
+  <view class="test-btn" bind:tap="testFuction2">测试按钮2</view>
+</view>

@@ -14,5 +14,9 @@ Page({
       { id: 2, imgurl: '../../images/swiper/swiper_adv1.png'},
     ],
   },
-
+  gotoTestPage() {
+    wx.navigateTo({
+      url: `/pages/testPage/index`,
+    });
+  },
 });

@@ -13,7 +13,8 @@
     "pages/aboutUs/index",
     "pages/connectUs/index",
     "pages/account/index",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/testPage/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
