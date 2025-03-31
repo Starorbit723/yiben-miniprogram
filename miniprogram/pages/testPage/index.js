@@ -8,7 +8,16 @@ Page({
 
   },
   testFuction1() {
-    console.log('testFuction1 start');
+    wx.cloud.callFunction({
+      name: 'utils',
+      data: {
+        type: 'wxId'
+      }
+    }).then(res => {
+      console.log('wxId result:', res)
+    }).catch(err => {
+      console.error('wxId error:', err)
+    })
   },
   testFuction2() {
     console.log('testFuction2 start');
