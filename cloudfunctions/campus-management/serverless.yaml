@@ -1,0 +1,14 @@
+component: scf
+name: campus-management
+inputs:
+  description: hello world 空白模板函数 # 函数描述
+  runtime: Nodejs18.15 # 运行环境
+  memorySize: 256 # 内存大小，单位MB
+  handler: index.main # 入口文件名
+  installDependency: true # 是否在线安装依赖
+  timeout: 20 # 函数执行超时时间，单位秒
+  eip: false # 是否开启固定IP
+  publicAccess: true # 是否开启公网访问
+  environment: #  环境变量
+    variables:
+      A: a

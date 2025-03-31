@@ -1,0 +1,19 @@
+{
+  "name": "campus-management",
+  "tcbRepo": {
+    "type": "function"
+  },
+  "scripts": {
+    "tcb-ff": "tcb-ff"
+  },
+  "dependencies": {
+    "@cloudbase/node-sdk": "3.3.7",
+    "dayjs": "^1.11.10"
+  },
+  "devDependencies": {
+    "@cloudbase/functions-framework": "latest"
+  },
+  "version": "1.0.0",
+  "description": "校区信息管理云函数",
+  "main": "index.js"
+}

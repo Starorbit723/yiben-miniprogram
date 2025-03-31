@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "openapi": [
+      "cloud.openapi.subscribeMessage.send",
+      "wxacode.get"
+    ]
+  }
+} 
