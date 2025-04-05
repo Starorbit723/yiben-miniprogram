@@ -1,4 +1,6 @@
 // pages/login/index.js
+const app = getApp();
+
 Page({
 
   /**
@@ -18,7 +20,11 @@ Page({
       return;
     }
     // 这里先模拟登录成功
-    
+    app.globalData.yibenId = 'yb123456';
+    console.log(app.globalData);
+    wx.navigateBack({
+      delta: 1
+    });
   },
   clickAgree() {
     this.setData({

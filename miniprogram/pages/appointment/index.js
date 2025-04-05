@@ -1,4 +1,5 @@
 const { envList } = require("../../envList");
+const app = getApp();
 
 Page({
   data: {
@@ -16,18 +17,18 @@ Page({
     });
   },
   gotoSingleAppointment() {
-    if (!this.data.authCookie) {
+    if (!app.globalData.yibenId) {
       wx.navigateTo({
         url: `/pages/login/index`,
       });
     } else {
       wx.navigateTo({
-        url: `/pages/singleAppointment/index?envId=1`,
+        url: `/pages/singleAppointment/index`,
       });
     }
   },
   gotoGroupAppointment() {
-    if (!this.data.authCookie) {
+    if (!app.globalData.yibenId) {
       wx.navigateTo({
         url: `/pages/login/index`,
       });

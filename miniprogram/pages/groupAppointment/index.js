@@ -34,8 +34,9 @@ Page({
     }]
   },
   gotoShareAppointment() {
+
     wx.navigateTo({
-      url: `/pages/shareAppointment/index?envId=1`,
+      url: `/pages/shareAppointment/index?orderId=12345`,
     });
   },
 });

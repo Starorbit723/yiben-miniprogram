@@ -1,10 +1,12 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" wx:if="{{showPage}}">
   <view class="title">恭喜您发起拼团成功</view>
   <view class="sub-title">请点击下方分享给其他参与者</view>
   <view class="step-zone">
     <yb-step stepList="{{stepList}}" currentStep="2"></yb-step>
   </view>
-  <yb-button class="share-btn" bindtap="gotoOtherAppointment" btnText="点击此处分享" width="600" height="80" fontSize="34" fontWeight="700"></yb-button>
+  <button class="share-btn" open-type="share">点击此处分享</button>
   <image class="bg-img" src="../../images/bg_yiben_logo.png"></image>
+  <!--调试工具-->
+  <yb-tester text="{{testConsole}}"></yb-tester>
 </view>

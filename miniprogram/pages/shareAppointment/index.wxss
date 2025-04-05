@@ -31,6 +31,9 @@ page {
 .share-btn{
   display: block;
   margin: 90rpx auto 0;
+  background-color: #FFF;
+  color: #ec4b7d;
+  border-radius: 40rpx;
 }
 .bg-img{
   position: absolute;

@@ -1,0 +1,5 @@
+<!--components/ybTester/index.wxml-->
+<view class="tester-content">
+  <view class="title">【调试测试数据】</view>
+  <view>{{text}}</view>
+</view>

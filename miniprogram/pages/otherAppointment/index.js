@@ -1,7 +1,10 @@
 const { envList } = require("../../envList");
+const app = getApp();
 
 Page({
   data: {
+    testConsole: '',
+    showPage: false,
     form: {
       parentName: '',
       studentName: '',
@@ -31,11 +34,29 @@ Page({
     },{
       text1: '完成拼团',
       text2: '享受优惠'
-    }]
+    }],
+    // 分享数据
+    shareFrom: '',
+    orderId: ''
+  },
+  onLoad(options) {
+    this.setData({
+      shareFrom: options.shareFrom || '',
+      orderId: options.orderId || ''
+    });
+    console.log('orderId', this.data.orderId);
+    this.setData({
+      testConsole: `shareFrom:${options.shareFrom}  orderId:${this.data.orderId}`
+    });
   },
   ensureJoinIn() {
-    wx.navigateTo({
-      url: `/pages/finishGroupAppointment/index?envId=1`,
+    if (!app.globalData.yibenId) {
+      wx.navigateTo({
+        url: `/pages/login/index`,
+      });
+    }
+    wx.redirectTo({
+      url: `/pages/finishGroupAppointment/index`,
     });
   },
 });

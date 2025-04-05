@@ -17,8 +17,8 @@ Page({
     }] 
   },
   gotoUsercenter() {
-    wx.navigateTo({
-      url: `/pages/userCenter/index?envId=3`,
+    wx.redirectTo({
+      url: `/pages/orderList/index`,
     });
   },
 });

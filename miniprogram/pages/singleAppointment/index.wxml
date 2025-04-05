@@ -32,7 +32,7 @@
     ></map>
   </view>
   <view class="ensure-btn">
-    <yb-button btnText="确认并提交" width="450" height="80" fontSize="34" fontWeight="700"></yb-button>
+    <yb-button btnText="确认并提交" bind:tap="submitSigleAppointment" width="450" height="80" fontSize="34" fontWeight="700"></yb-button>
   </view>
   
 </view>

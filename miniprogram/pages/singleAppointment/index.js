@@ -1,4 +1,5 @@
 const { envList } = require("../../envList");
+const app = getApp();
 
 Page({
   data: {
@@ -29,5 +30,8 @@ Page({
     this.setData({
       showModal: false
     });
+  },
+  submitSigleAppointment() {
+    console.log(app.globalData);
   },
 });
