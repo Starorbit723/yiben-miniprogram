@@ -28,7 +28,7 @@ Page({
   },
   gotoOrderList() {
     wx.navigateTo({
-      url: `/pages/orderList/index?envId=3`,
+      url: `/pages/bookList/index?envId=3`,
     });
   },
   gotoAgreement() {

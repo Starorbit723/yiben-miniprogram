@@ -3,7 +3,7 @@
   <view class="order-list">
     <view class="order-item" wx:for="{{orderList}}" wx:key="{{orderNo}}">
       <view class="top">
-        <view class="order-num">订单编号：{{item.orderNo}}</view>
+        <view class="order-num">预约编号：{{item.orderNo}}</view>
         <view class="order-time">创建时间：{{item.orderTime}}</view>
       </view>
       <view class="middle">

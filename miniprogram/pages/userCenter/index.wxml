@@ -35,7 +35,7 @@
     <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
   </view>
   <view class="enter-label" style="margin-top: 20rpx;" bindtap="gotoOrderList">
-    <view>我的订单</view>
+    <view>我的预约</view>
     <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
   </view>
   <view class="enter-label" style="margin-top: 60rpx;" bindtap="gotoAboutUs">
