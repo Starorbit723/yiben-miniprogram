@@ -1,5 +1,8 @@
 <!--pages/testPage/index.wxml-->
 <view class="container">
-  <view class="test-btn" bind:tap="testFuction1">测试按钮1</view>
-  <view class="test-btn" bind:tap="testFuction2">测试按钮2</view>
+  <view class="test-btn" bind:tap="testFuction1">测试openid</view>
+  <view class="test-btn" bind:tap="testFuction2">测试读取校区信息</view>
+  <view class="test-btn" bind:tap="testFuction3">测试保存校区信息</view>
+  <view class="test-btn" bind:tap="testFuction4">测试读取校区信息</view>
+  <view class="test-btn" bind:tap="testFuction5">测试读取校区信息</view>
 </view>
