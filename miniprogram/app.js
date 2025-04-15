@@ -1,19 +1,26 @@
 // app.js
 App({
   globalData: {
-    appid: 'wxe96a5b79479677ca',
-    secret: '03513537d74911474f8ab869970293ff',
     userInfo: {
+      appid: '',
+      yibenid: '',
+      openid: '',
+      unionid: '',
+      parentName: '',
+      phoneNumber: '',
+      point: "",
+      userType: 0, // 0 客户 1 销售 2 老师
+      children: [],
+      // 微信授权返回
+      nickName: '',
       avatarUrl: "",
       city: "",
       country: "",
       province: "",
       gender: "",
       language: "",
-      nickName: "",
-      age: "",
-      point: "",
-    }
+      age: ""
+    },
   },
   onLaunch: function () {
     if (!wx.cloud) {
@@ -24,7 +31,6 @@ App({
         traceUser: true,
       });
     }
-
     console.log(this.globalData);
   },
 });

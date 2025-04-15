@@ -44,5 +44,6 @@
       <image class="close_icon" src="../../images/icons/yb_close_icon.png" bindtap="closeModal"></image>
     </view>
   </view>
-  
+  <!--调试工具-->
+  <yb-tester text="{{testConsole}}"></yb-tester>
 </view>

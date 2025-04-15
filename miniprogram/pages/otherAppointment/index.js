@@ -50,7 +50,7 @@ Page({
     });
   },
   ensureJoinIn() {
-    if (!app.globalData.yibenId) {
+    if (!app.globalData.yibenid) {
       wx.navigateTo({
         url: `/pages/login/index`,
       });

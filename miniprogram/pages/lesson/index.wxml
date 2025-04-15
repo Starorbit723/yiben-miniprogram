@@ -1,0 +1,20 @@
+<!--pages/lesson/index.wxml-->
+<view class="container">
+  <view class="subtitle">【教学多元化】</view>
+  <view class="text">通过打开五感（听觉，触觉，视觉，嗅觉，味觉），课堂中利用五感刺激，从而强化可理解性外语输入，让学生在理解和感受中潜移默化记住英文</view>
+  <image class="wugan" src="../../images/wugan.png"></image>
+  <view class="subtitle sep">【平衡式教学】</view>
+  <view class="text">整体教学强调口语输出为主线，刺激与鼓励孩子的口语流利输出。同时平衡拉起孩子的听力，阅读与写作。</view>
+  <image class="kouyu" src="../../images/kouyu.png"></image>
+  <view class="subtitle sep">【课程形式】</view>
+  <view class="text">手工，画画，绘本，生活真实场景，实体教具等</view>
+  <image class="kouyu" src="../../images/shougong.png"></image>
+  <view class="subtitle sep">【教材选择】</view>
+  <view class="text">剑桥体系知名教材搭配各类绘本</view>
+  <image class="kouyu" src="../../images/jiaocai.png"></image>
+  <view class="subtitle sep">【输出形式】</view>
+  <view class="text">孩子可自己输出思维导图，利用思维导图强调学生自主思考的路径，从属关系，客观事实等</view>
+  <image class="kouyu" src="../../images/dt1.png"></image>
+  <image class="kouyu" src="../../images/dt2.png"></image>
+  <image class="kouyu" src="../../images/dt3.png"></image>
+</view>

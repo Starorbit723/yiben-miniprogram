@@ -8,13 +8,14 @@ Page({
    */
   data: {
     isAgree: false,
+    canGoBack: ''
   },
   doLoginStart() {
     if (!this.data.isAgree) {
       wx.showToast({
         title: '请先阅读并同意用户协议及隐私政策',
         icon: 'none',
-        duration: 2000,
+        duration: 1500,
         mask: true
       });
       return;
@@ -26,16 +27,21 @@ Page({
       }
     }).then(res => {
       console.log('wxId result:', res);
-      
+      // 这里先模拟登录成功
+      app.globalData.userInfo = res.result;
+      console.log(app.globalData);
+      if (this.data.canGoBack === '0') {
+        wx.switchTab({
+          url: '/pages/index/index'
+        })
+      } else {
+        wx.navigateBack({
+          delta: 1
+        });
+      }
     }).catch(err => {
       console.error('wxId error:', err)
     })
-    // 这里先模拟登录成功
-    app.globalData.yibenId = 'yb123456';
-    console.log(app.globalData);
-    // wx.navigateBack({
-    //   delta: 1
-    // });
   },
   clickAgree() {
     this.setData({
@@ -51,7 +57,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      canGoBack: options.canGoBack || 1,
+    });
+    console.log('canGoBack', this.data.canGoBack);
   },
 
   /**

@@ -15,32 +15,33 @@
   <!--nav-->
   <view class="nav-content">
     <view class="nav-top">
-      <view class="nav-top-tips">Hey，来跟壹本英语打个招呼，Waiting For You ！</view>
-      <yb-button class="login-btn" btnText="登录/注册" width="130" height="40" fontSize="20"></yb-button>
+      <view class="nav-top-tips" wx:if="{{!userInfo.openid}}">Hey，来跟壹本英语打个招呼，Waiting For You ！</view>
+      <view class="nav-top-tips" wx:if="{{userInfo.openid}}">Hello, {{userInfo.nickName || userInfo.parentName || '尊敬的家长'}}</view>
+      <yb-button wx:if="{{!userInfo.openid}}" class="login-btn" bind:tap="goToLogin" btnText="登录/注册" width="130" height="40" fontSize="20"></yb-button>
     </view>
     <view class="nav-bottom">
-      <view class="nav-item">
+      <view class="nav-item" bind:tap="goToTeachers">
         <view class="nav-icon">
           <image class="nav-icon-img" src="../../images/icons/teacher_icon.png"></image>
         </view>
         <view class="cn-text">师资介绍</view>
         <view class="en-text">Teacher</view>
       </view>
-      <view class="nav-item">
+      <view class="nav-item" bind:tap="goToLesson">
         <view class="nav-icon">
           <image class="nav-icon-img" src="../../images/icons/lesson_icon.png"></image>
         </view>
         <view class="cn-text">课程介绍</view>
         <view class="en-text">Lesson</view>
       </view>
-      <view class="nav-item">
+      <view class="nav-item" bind:tap="goToSchool">
         <view class="nav-icon">
           <image class="nav-icon-img" src="../../images/icons/school_icon.png"></image>
         </view>
         <view class="cn-text">校区介绍</view>
         <view class="en-text">School</view>
       </view>
-      <view class="nav-item">
+      <view class="nav-item" bind:tap="goToTextBook">
         <view class="nav-icon">
           <image class="nav-icon-img" src="../../images/icons/textbook_icon.png"></image>
         </view>

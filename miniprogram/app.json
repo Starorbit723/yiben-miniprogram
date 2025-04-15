@@ -14,7 +14,11 @@
     "pages/connectUs/index",
     "pages/account/index",
     "pages/login/index",
-    "pages/testPage/index"
+    "pages/testPage/index",
+    "pages/teachers/index",
+    "pages/lesson/index",
+    "pages/school/index",
+    "pages/textBook/index"
   ],
   "shareAppMessage": true,
   "shareTimeline": true,
