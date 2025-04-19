@@ -50,7 +50,7 @@
 7. ownerOpenid
 8. ownerYibenid
 9. schoolid
-10. ownerChildren ['name']
+10. ownerChildren // 姓名字符串数组
 11. ifPrepaid (后台改)
 12. matchTeacher(后台改)
 13. ifPresent(后台改)
@@ -65,7 +65,7 @@
 	2. memberOpenid
 	3. memberYibenid
 	4. memberName
-	5. memberChildren['name']
+	5. memberChildren // 姓名字符串数组
 	6. memberPhone
 	7. bookid
 ## 接口
