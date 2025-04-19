@@ -31,9 +31,9 @@
 ## 接口
 1. 登录 ，获取openid 并检查是否为存量客户，不过不是，创建新用户 （yb_xxxxxxx）
 	1. 入参 无
-	2. 返回 {openid, appid, unionid, 所有其他可用信息}
+	2. 返回 {openid, yibenid, unionid, 所有其他可用信息}
 2. 客户信息补全 （通过小程序能力获取客户微信相关信息）
-	2. 入参 openid yibenId avatarUrl  city，country，province:，gender language，nickName
+	2. 入参 openid yibenid avatarUrl  city，country，province:，gender language，nickName
 	3. 返回 then catch
 3. 客户手动补填信息
 	1. 入参 parentName, phoneNumber, 学员信息数组【姓名、年龄、性别（）】
