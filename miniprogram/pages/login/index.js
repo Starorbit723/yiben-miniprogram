@@ -33,6 +33,8 @@ Page({
       app.globalData.userInfo.unionid = res.result.data.unionid;
       app.globalData.userInfo.userType = res.result.data.userType;
       app.globalData.userInfo.point = res.result.data.point;
+      app.globalData.userInfo.parentName = res.result.data.parentName;
+      app.globalData.userInfo.phoneNumber = res.result.data.phoneNumber;
       app.globalData.userInfo.children = res.result.data.children;
       setTimeout(() => {
         console.log(app.globalData);

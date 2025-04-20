@@ -52,7 +52,6 @@ Page({
       code: code
     })
     this.getUserProfile();
-    this.getOpenId();
   },
   getUserProfile() {
     console.log('getUserProfile');
