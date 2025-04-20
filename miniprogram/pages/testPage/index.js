@@ -62,6 +62,29 @@ Page({
     })
     console.log('testFuction3 start');
   },
+  testFuction4() {
+    wx.cloud.callFunction({
+      name: 'operations',
+      data: {
+        type: 'userManagePage',
+        data: {
+          pageNo: 2,
+          pageSize: 2,
+          condition: {
+            // yibenid: 'yb_z2Zsnac',
+            // nickName: '',
+            // phoneNumber: '12345678901',
+            // userType: 0
+          }
+        }
+      }
+    }).then(res => {
+      console.log('userManagePage result:', res)
+    }).catch(err => {
+      console.error('userManagePage error:', err)
+    })
+    console.log('userManagePage start');
+  },
   
   /**
    * 生命周期函数--监听页面加载
