@@ -17,7 +17,7 @@ Page({
     });
   },
   gotoSingleAppointment() {
-    if (!app.globalData.userinfo.yibenid) {
+    if (!app.globalData.userInfo.yibenid) {
       wx.navigateTo({
         url: `/pages/login/index`,
       });

@@ -26,7 +26,7 @@ Page({
         type: 'userLogin'
       }
     }).then(res => {
-      console.log('wxId result:', res);
+      console.log('userLogin result:', res);
       // 这里先模拟登录成功
       app.globalData.userInfo.yibenid = res.result.data.yibenid;
       app.globalData.userInfo.openid = res.result.data.openid;
@@ -36,6 +36,14 @@ Page({
       app.globalData.userInfo.parentName = res.result.data.parentName;
       app.globalData.userInfo.phoneNumber = res.result.data.phoneNumber;
       app.globalData.userInfo.children = res.result.data.children;
+      // wx 相关
+      app.globalData.userInfo.nickName = res.result.data.nickName;
+      app.globalData.userInfo.avatarUrl = res.result.data.avatarUrl;
+      app.globalData.userInfo.city = res.result.data.city;
+      app.globalData.userInfo.gender = res.result.data.gender;
+      app.globalData.userInfo.language = res.result.data.language;
+      app.globalData.userInfo.country = res.result.data.country;
+      app.globalData.userInfo.province = res.result.data.province;
       setTimeout(() => {
         console.log(app.globalData);
       }, 300);

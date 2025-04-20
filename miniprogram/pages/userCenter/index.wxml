@@ -15,15 +15,15 @@
     <view class="info-box m2">
       <view class="title">年龄：</view>
       <view class="text">
-        <view wx:if="{{userInfo.age}}"></view>
+        <view wx:if="{{userInfo.age}}">{{userInfo.age}}</view>
         <view wx:if="{{!userInfo.age}}">-</view>
       </view>
     </view>
     <view class="info-box m3">
       <view class="title">积分：</view>
       <view class="text">
-        <view wx:if="{{userInfo.point}}"></view>
-        <view wx:if="{{!userInfo.point}}">-</view>
+        <view wx:if="{{userInfo.point >= 0}}">{{userInfo.point}}</view>
+        <view wx:else>-</view>
       </view>
     </view>
     <view class="btn-zone">

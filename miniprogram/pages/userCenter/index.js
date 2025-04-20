@@ -58,23 +58,45 @@ Page({
     wx.getUserProfile({
       desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
+        console.log('WX getUserProfile res', res.userInfo);
         const _userinfo = Object.assign(this.data.userInfo, res.userInfo);
         this.setData({
           userInfo: _userinfo,
         });
-        console.log(this.data.userInfo);
+        // 更新全局信息
+        app.globalData.userInfo.nickName = res.userInfo.nickName;
+        app.globalData.userInfo.avatarUrl = res.userInfo.avatarUrl;
+        app.globalData.userInfo.city = res.userInfo.city;
+        app.globalData.userInfo.gender = res.userInfo.gender;
+        app.globalData.userInfo.language = res.userInfo.language;
+        app.globalData.userInfo.country = res.userInfo.country;
+        app.globalData.userInfo.province = res.userInfo.province;
+        console.log('getUserProfile', this.data.userInfo);
+        this.updateUserWxInfo();
       }
     })
   },
-  getOpenId() {
-    const code = this.data.code;
-    const appid = app.globalData.appid;
-    const secret = app.globalData.secret;
-    wx.request({
-      url: `https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=${secret}&js_code=${code}&grant_type=authorization_code`,
-      success:(res)=>{
-        console.log(res);
+  // 给后台回传微信接口信息
+  updateUserWxInfo() {
+    wx.cloud.callFunction({
+      name: 'operations',
+      data: {
+        type: 'userInfoAuto',
+        data: {
+          yibenid: app.globalData.userInfo.yibenid,
+          nickName: app.globalData.userInfo.nickName,
+          avatarUrl: app.globalData.userInfo.avatarUrl,
+          city: app.globalData.userInfo.city,
+          gender: app.globalData.userInfo.gender,
+          language: app.globalData.userInfo.language,
+          country: app.globalData.userInfo.country,
+          province: app.globalData.userInfo.province,
+        },
       }
+    }).then(res => {
+      console.log('userInfoAuto result:', res);
+    }).catch(err => {
+      console.error('userInfoAuto error:', err)
     });
   },
   /**
@@ -99,7 +121,31 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    getWxCode(this.getUserInfo);
+    this.setData({
+      userInfo: app.globalData.userInfo
+    });
+    // 已登录情况下，获取全部用户信息，用户数据矫正
+    if (app.globalData.userInfo.yibenid) {
+      wx.cloud.callFunction({
+        name: 'operations',
+        data: {
+          type: 'userOneInfo',
+          data: {
+            yibenid: app.globalData.userInfo.yibenid
+          },
+        }
+      }).then(res => {
+        console.log('userOneInfo result:', res);
+        this.setData({
+          userInfo: app.globalData.userInfo
+        });
+        console.log('update userInfo', this.data.userInfo);
+      }).catch(err => {
+        console.error('userOneInfo error:', err)
+      });
+      getWxCode(this.getUserInfo);
+    }
+    
   },
 
   /**
