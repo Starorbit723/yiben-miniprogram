@@ -12,6 +12,8 @@ exports.main = async (params, db) => {
     bookType,
     originInfo,
     prevInfo,
+    yibenid,
+    openid,
     ownerName,
     ownerPhone,
     ownerChildren,
@@ -26,10 +28,10 @@ exports.main = async (params, db) => {
     };
   }
 
-  if (!originInfo || !originInfo.yibenid || !originInfo.openid) {
+  if (!originInfo || !prevInfo || !yibenid || !openid) {
     return {
       success: false,
-      errMsg: '缺少必要参数：originInfo (yibenid, openid)'
+      errMsg: '缺少必要参数：originInfo, prevInfo, yibenid, openid'
     };
   }
 
@@ -108,8 +110,8 @@ exports.main = async (params, db) => {
       prevInfo: prevInfo || {},
       ownerName,
       ownerPhone: ownerPhone,
-      ownerOpenid: originInfo.openid,
-      ownerYibenid: originInfo.yibenid,
+      ownerOpenid: openid,
+      ownerYibenid: yibenid,
       schoolid: schoolid || '',
       ownerChildren,
       ifPrepaid: false,
