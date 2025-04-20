@@ -1,4 +1,5 @@
 // pages/account/index.js
+const app = getApp();
 const { validatePhoneNumber, validateUsername, validateAge } = require("../../utils/common.js");
 
 Page({
@@ -11,10 +12,15 @@ Page({
       parentName: '',
       phoneNumber: '',
       children: [{
-        studentName: '',
-        age: ''
+        name: '',
+        age: '',
+        gender: 1
       }]
     },
+    genderOptions: [
+      {id: 1 , name: '男'},
+      {id: 2 , name: '女'}
+    ],
   },
   parentNameInput(e) {
     console.log(e);
@@ -30,7 +36,7 @@ Page({
   nameInput(e) {
     const index = e.currentTarget.dataset.index;
     this.setData({
-      [`form.children[${index}].studentName`]: e.detail.value
+      [`form.children[${index}].name`]: e.detail.value
     });
   },
   ageInput(e) {
@@ -38,6 +44,14 @@ Page({
     this.setData({
       [`form.children[${index}].age`]: e.detail.value
     });
+  },
+  bindPickerChange(e) {
+    const index = e.currentTarget.dataset.index;
+    console.log('picker发送选择改变，携带值为', e.detail.value, 'index', index)
+    this.setData({
+      [`form.children[${index}].gender`]: parseFloat(e.detail.value) + 1
+    });
+    console.log(this.data.form.children);
   },
   addChildren() {
     const len = this.data.form.children.length;
@@ -51,7 +65,7 @@ Page({
       return;
     }
     console.log('1222233', this.data.form.children);
-    if (!this.data.form.children[len - 1].studentName || !this.data.form.children[len - 1].age) {
+    if (!this.data.form.children[len - 1].name || !this.data.form.children[len - 1].age) {
       wx.showToast({
         title: '请您先完成上一个学生信息的填写',
         icon: 'none',
@@ -64,8 +78,9 @@ Page({
     const addIndex = this.data.form.children.length;
     this.setData({
       [`form.children[${addIndex}]`]: {
-        studentName: '',
-        age: ''
+        name: '',
+        age: '',
+        gender: 1
       }
     });
   },
@@ -99,7 +114,7 @@ Page({
       return;
     }
     for(let i = 0; i < this.data.form.children.length; i++) {
-      if (!this.data.form.children[i].studentName || !this.data.form.children[i].age) {
+      if (!this.data.form.children[i].name || !this.data.form.children[i].age) {
         wx.showToast({
           title: '您还有未填写的信息',
           icon: 'none',
@@ -108,7 +123,7 @@ Page({
         });
         return;
       }
-      if (!validateUsername(this.data.form.children[i].studentName)) {
+      if (!validateUsername(this.data.form.children[i].name)) {
         wx.showToast({
           title: '请确认学生姓名是否有误',
           icon: 'none',
@@ -128,6 +143,37 @@ Page({
       }
     }
     console.log('开始提交');
+    wx.cloud.callFunction({
+      name: 'operations',
+      data: {
+        type: 'userInfoMan',
+        data: {
+          yibenid: app.globalData.userInfo.yibenid,
+          ...this.data.form
+        }
+      }
+    }).then(res => {
+      console.log('userInfoMan result:', res);
+      if (res.result.success === true) {
+        app.globalData.userInfo.parentName = this.data.form.parentName;
+        app.globalData.userInfo.phoneNumber = this.data.form.phoneNumber;
+        app.globalData.userInfo.children = this.data.form.children;
+        setTimeout(() => {
+          console.log(app.globalData);
+        }, 300);
+        if (this.data.canGoBack === '0') {
+          wx.switchTab({
+            url: '/pages/index/index'
+          })
+        } else {
+          wx.navigateBack({
+            delta: 1
+          });
+        }
+      }
+    }).catch(err => {
+      console.error('wxId error:', err)
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -147,7 +193,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    if (!app.globalData.userInfo.yibenid || !app.globalData.userInfo.yibenid) {
+      wx.navigateBack({
+        delta: 1
+      });
+    }
+    this.setData({
+      'form.parentName': app.globalData.userInfo.parentName,
+      'form.phoneNumber': app.globalData.userInfo.phoneNumber,
+      'form.children': app.globalData.userInfo.children
+    });
   },
 
   /**

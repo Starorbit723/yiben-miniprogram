@@ -17,7 +17,7 @@ App({
       city: "",
       country: "",
       province: "",
-      gender: "",
+      gender: 0,
       language: "",
       age: ""
     },

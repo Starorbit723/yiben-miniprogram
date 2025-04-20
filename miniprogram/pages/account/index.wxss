@@ -44,6 +44,18 @@ page {
   text-align: center;
   font-size: 30rpx;
 }
+.yb-picker{
+  float: left;
+  display: block;
+  padding: 0;
+  text-align: center;
+  width: 470rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: #FFF;
+  border-radius: 35rpx;
+  font-size: 30rpx;
+}
 .childrens{
   margin-top: 70rpx;
 }

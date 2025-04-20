@@ -21,15 +21,22 @@ Page({
       return;
     }
     wx.cloud.callFunction({
-      name: 'utils',
+      name: 'operations',
       data: {
-        type: 'wxId'
+        type: 'userLogin'
       }
     }).then(res => {
       console.log('wxId result:', res);
       // 这里先模拟登录成功
-      app.globalData.userInfo = res.result;
-      console.log(app.globalData);
+      app.globalData.userInfo.yibenid = res.result.data.yibenid;
+      app.globalData.userInfo.openid = res.result.data.openid;
+      app.globalData.userInfo.unionid = res.result.data.unionid;
+      app.globalData.userInfo.userType = res.result.data.userType;
+      app.globalData.userInfo.point = res.result.data.point;
+      app.globalData.userInfo.children = res.result.data.children;
+      setTimeout(() => {
+        console.log(app.globalData);
+      }, 300);
       if (this.data.canGoBack === '0') {
         wx.switchTab({
           url: '/pages/index/index'
