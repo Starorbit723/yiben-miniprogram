@@ -85,6 +85,22 @@ Page({
     })
     console.log('userManagePage start');
   },
+  testFuction5() {
+    wx.cloud.callFunction({
+      name: 'operations',
+      data: {
+        type: 'userOneInfo',
+        data: {
+          yibenid: 'yb_z2Zsnac',
+          }
+      }
+    }).then(res => {
+      console.log('userOneInfo result:', res)
+    }).catch(err => {
+      console.error('userOneInfo error:', err)
+    })
+    console.log('userOneInfo start');
+  },
   
   /**
    * 生命周期函数--监听页面加载
