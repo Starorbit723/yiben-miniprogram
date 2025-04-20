@@ -76,19 +76,11 @@ exports.main = async (params, db) => {
         data: updateData
       });
     
-    if (updateResult.stats.updated > 0) {
-      return {
-        success: true,
-        message: '用户信息更新成功',
-        updated: updateResult.stats.updated
-      };
-    } else {
-      return {
-        success: false,
-        errMsg: '用户信息更新失败',
-        updated: 0
-      };
-    }
+    return {
+      success: true,
+      message: '用户信息更新成功',
+      updated: updateResult.stats.updated
+    };
   } catch (err) {
     return {
       success: false,
