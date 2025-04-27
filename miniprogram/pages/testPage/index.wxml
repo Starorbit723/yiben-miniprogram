@@ -4,5 +4,5 @@
   <view class="test-btn" bind:tap="testFuction2">测试读取校区信息</view>
   <view class="test-btn" bind:tap="testFuction3">测试保存校区信息</view>
   <view class="test-btn" bind:tap="testFuction4">用户信息分页</view>
-  <view class="test-btn" bind:tap="testFuction5">测试读取校区信息</view>
+  <view class="test-btn" bind:tap="testFuction5">用户完整信息</view>
 </view>

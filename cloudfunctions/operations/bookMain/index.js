@@ -10,8 +10,10 @@ exports.main = async (params, db) => {
 
   const {
     bookType,
-    originInfo,
-    prevInfo,
+    originOpenid,
+    prevOpenid,
+    yibenid,
+    openid,
     ownerName,
     ownerPhone,
     ownerChildren,
@@ -26,10 +28,10 @@ exports.main = async (params, db) => {
     };
   }
 
-  if (!originInfo || !originInfo.yibenid || !originInfo.openid) {
+  if (!originOpenid || !prevOpenid || !yibenid || !openid) {
     return {
       success: false,
-      errMsg: '缺少必要参数：originInfo (yibenid, openid)'
+      errMsg: '缺少必要参数：originOpenid, prevOpenid, yibenid, openid'
     };
   }
 
@@ -104,12 +106,12 @@ exports.main = async (params, db) => {
     const bookRecord = {
       bookid,
       bookType: Number(bookType),
-      originInfo,
-      prevInfo: prevInfo || {},
+      originOpenid,
+      prevOpenid,
       ownerName,
       ownerPhone: ownerPhone,
-      ownerOpenid: originInfo.openid,
-      ownerYibenid: originInfo.yibenid,
+      ownerOpenid: openid,
+      ownerYibenid: yibenid,
       schoolid: schoolid || '',
       ownerChildren,
       ifPrepaid: false,

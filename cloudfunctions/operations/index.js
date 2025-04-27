@@ -3,6 +3,7 @@ const cloud = require('wx-server-sdk');
 
 const schoolRead = require('./schoolRead/index');
 const schoolSave = require('./schoolSave/index');
+const schoolList = require('./schoolList/index');
 const userLogin = require('./userLogin/index');
 const userInfoAuto = require('./userInfoAuto/index');
 const userInfoMan = require('./userInfoMan/index');
@@ -24,7 +25,7 @@ const db = cloud.database();
 exports.main = async (event, context) => {
   try {
     // 参数基础校验
-    if (!event.type || !['schoolRead', 'schoolSave', 'userLogin', 'userInfoAuto', 'userInfoMan', 'bookMain', 'bookGroup', 'bookOneInfo', 'bookOfUser', 'bookModify', 'userManagePage', 'userOneInfo'].includes(event.type)) {
+    if (!event.type || !['schoolRead', 'schoolSave', 'schoolList', 'userLogin', 'userInfoAuto', 'userInfoMan', 'bookMain', 'bookGroup', 'bookOneInfo', 'bookOfUser', 'bookModify', 'userManagePage', 'userOneInfo'].includes(event.type)) {
       return { code: 400, message: '无效的操作类型' };
     }
 
@@ -34,6 +35,8 @@ exports.main = async (event, context) => {
         return await schoolRead.main(event.data, db);
       case 'schoolSave':
         return await schoolSave.main(event.data, db);
+      case 'schoolList':
+        return await schoolList.main(event.data, db);
       case 'userLogin':
         return await userLogin.main(event.data, db);
       case 'userInfoAuto':
