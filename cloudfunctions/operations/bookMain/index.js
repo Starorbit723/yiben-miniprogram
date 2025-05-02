@@ -57,6 +57,18 @@ exports.main = async (params, db) => {
       errMsg: '缺少必要参数：ownerChildren'
     };
   }
+  
+  // 处理 schoolid, 确保为整数类型
+  let schoolidInt = null;
+  if (schoolid !== undefined && schoolid !== '') {
+    schoolidInt = parseInt(schoolid, 10);
+    if (isNaN(schoolidInt)) {
+      return {
+        success: false,
+        errMsg: 'schoolid 必须是有效的整数'
+      };
+    }
+  }
 
   // 生成随机的32位bookid
   function generateBookId() {
@@ -116,7 +128,7 @@ exports.main = async (params, db) => {
       ownerYibenid: yibenid,
       originYibenid,
       prevYibenid,
-      schoolid: schoolid || '',
+      schoolid: schoolidInt,
       ownerChildren,
       ifPrepaid: false,
       matchTeacher: '',

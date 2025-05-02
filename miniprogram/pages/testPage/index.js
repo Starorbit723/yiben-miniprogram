@@ -68,13 +68,9 @@ Page({
       data: {
         type: 'userManagePage',
         data: {
-          pageNo: 2,
+          pageNo: 1,
           pageSize: 2,
           condition: {
-            // yibenid: 'yb_z2Zsnac',
-            // nickName: '',
-            // phoneNumber: '12345678901',
-            // userType: 0
           }
         }
       }
@@ -100,6 +96,29 @@ Page({
       console.error('userOneInfo error:', err)
     })
     console.log('userOneInfo start');
+  },
+  testFuction6() {
+    wx.cloud.callFunction({
+      name: 'operations',
+      data: {
+        type: 'bookManagePage',
+        data: {
+          pageNo: 1,
+          pageSize: 2,
+          condition: {
+            bookid: "FuTjiaLvkkBRDX8lDkNrMx8ZLazWoYvc",
+            bookType: 2,
+            schoolid: 1,
+            bookTimeRanger: ["2025-01-01", "2025-01-02"]
+          }
+        }
+      }
+    }).then(res => {
+      console.log('bookManagePage result:', res)
+    }).catch(err => {
+      console.error('bookManagePage error:', err)
+    })
+    console.log('bookManagePage start');
   },
   
   /**
