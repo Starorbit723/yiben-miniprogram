@@ -12,7 +12,7 @@ Page({
       school: 0
     },
     schoolOptions: [
-      {id: 0 , name: '广安门校区'}
+      {id: 1 , name: '广安门校区'}
     ],
     latitude: 39.890780,
     longitude: 116.355712,

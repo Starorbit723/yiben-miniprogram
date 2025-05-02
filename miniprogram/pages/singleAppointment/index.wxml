@@ -17,7 +17,7 @@
     <view class="input-box">
       <view class="label">预约校区</view>
       <picker class="yb-picker" value="{{form.schoolid}}" mode="selector" range-key="name" range="{{schoolOptions}}">
-        <view>{{schoolOptions[form.schoolid].name}}</view>
+        <view>{{schoolOptions[form.schoolid - 1].name}}</view>
       </picker>
     </view>
   </view>

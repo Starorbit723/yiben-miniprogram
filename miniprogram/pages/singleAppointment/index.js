@@ -8,10 +8,10 @@ Page({
       ownerName: '',
       ownerChildren: '',
       ownerPhone: '',
-      schoolid: 0
+      schoolid: 1
     },
     schoolOptions: [
-      {id: 0 , name: '广安门校区'}
+      {id: 1 , name: '广安门校区'}
     ],
     latitude: 39.890780,
     longitude: 116.355712,
@@ -24,6 +24,7 @@ Page({
   },
   submitSigleAppointment() {
     console.log('bookMain call', this.data.form);
+    console.log('读取', app.globalData);
     wx.cloud.callFunction({
       name: 'operations',
       data: {
@@ -32,8 +33,10 @@ Page({
           yibenid: app.globalData.userInfo.yibenid,
           openid: app.globalData.userInfo.openid,
           bookType: 1,
-          originOpenid: app.globalData.userInfo.openid,
-          prevOpenid: app.globalData.userInfo.openid,
+          originYibenid: app.globalData.originYibenid ? app.globalData.originYibenid : app.globalData.userInfo.yibenid,
+          originOpenid: app.globalData.originOpenid ? app.globalData.originOpenid : app.globalData.userInfo.openid,
+          prevYibenid: app.globalData.prevYibenid ? app.globalData.prevYibenid : app.globalData.userInfo.yibenid,
+          prevOpenid: app.globalData.prevOpenid ? app.globalData.prevOpenid : app.globalData.userInfo.openid,
           ownerName: this.data.form.ownerName,
           ownerPhone: this.data.form.ownerPhone,
           ownerChildren: this.data.form.ownerChildren,

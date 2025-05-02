@@ -28,7 +28,7 @@ Page({
     }
   },
   gotoGroupAppointment() {
-    if (!app.globalData.userinfo.yibenid) {
+    if (!app.globalData.userInfo.yibenid) {
       wx.navigateTo({
         url: `/pages/login/index`,
       });
@@ -39,17 +39,30 @@ Page({
     }
   },
   onShareAppMessage() {
+    console.log('分享到个人', app.globalData);
+    let _originInfo = '';
+    if (app.globalData.originYibenid && app.globalData.originOpenid) {
+      _originInfo = `&originYibenid=${app.globalData.originYibenid}&originOpenid=${app.globalData.originOpenid}`;
+    } else {
+      _originInfo = `&originYibenid=${app.globalData.userInfo.yibenid}&originOpenid=${app.globalData.userInfo.openid}`
+    }
     return {
       title: '快来参加壹本英语体验课吧！多人拼团享优惠',
-      path: `/pages/appointment/index?shareFrom=friend&originInfo=${app.globalData.userinfo.yibenid}#${app.globalData.userinfo.openid}&prevInfo=${app.globalData.userinfo.yibenid}#${app.globalData.userinfo.openid}`,
+      path: `/pages/appointment/index?shareFrom=friend${_originInfo}&prevYibenid=${app.globalData.userInfo.yibenid}&prevOpenid=${app.globalData.userInfo.openid}`,
       imageUrl: '../../images/shareImg.png',
     };
   },
   onShareTimeline() {
+    let _originInfo = '';
+    if (app.globalData.originYibenid && app.globalData.originOpenid) {
+      _originInfo = `&originYibenid=${app.globalData.originYibenid}&originOpenid=${app.globalData.originOpenid}`;
+    } else {
+      _originInfo = `&originYibenid=${app.globalData.userInfo.yibenid}&originOpenid=${app.globalData.userInfo.openid}`
+    }
     return {
       title: '快来参加壹本英语体验课吧！多人拼团享优惠',
       imageUrl: '../../images/shareImg.png',
-      query: `shareFrom=pyq&orderId=${this.data.orderId}`
+      query: `shareFrom=pyq${_originInfo}&prevYibenid=${app.globalData.userInfo.yibenid}&prevOpenid=${app.globalData.userInfo.openid}`
     }
   },
   toQueryString(obj) {
@@ -80,6 +93,18 @@ Page({
     }
   },
   onLoad(options) {
+    console.log('onLoad', options, app.globalData);
+    if (options.shareFrom) {
+      if (options.originYibenid && options.originOpenid) {
+        app.globalData.originYibenid = options.originYibenid;
+        app.globalData.originOpenid = options.originOpenid;
+      }
+      if (options.prevYibenid && options.prevOpenid) {
+        app.globalData.prevYibenid = options.prevYibenid;
+        app.globalData.prevOpenid = options.prevOpenid;
+      }
+      console.log('存入', app.globalData);
+    }
     this.setData({
       testConsole: `shareFrom:${options.shareFrom}  originInfo:${options.originInfo} prevInfo:${options.prevInfo}`
     });

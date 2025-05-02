@@ -21,6 +21,11 @@ App({
       language: "",
       age: ""
     },
+    // 转发信息
+    originYibenid: '',
+    originOpenid: '',
+    prevYibenid: '',
+    prevOpenid: '',
   },
   onLaunch: function () {
     if (!wx.cloud) {
