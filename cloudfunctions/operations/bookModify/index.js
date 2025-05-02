@@ -16,7 +16,9 @@ exports.main = async (params, db) => {
     receptionTeacherPhone,
     lessonTime,
     lessonRoom,
-    status
+    status,
+    originYibenid,
+    prevYibenid
   } = params;
 
   // 构建更新对象，只包含传入的字段
@@ -30,6 +32,8 @@ exports.main = async (params, db) => {
   if (lessonTime !== undefined) updateData.lessonTime = lessonTime;
   if (lessonRoom !== undefined) updateData.lessonRoom = lessonRoom;
   if (status !== undefined) updateData.status = status;
+  if (originYibenid !== undefined) updateData.originYibenid = originYibenid;
+  if (prevYibenid !== undefined) updateData.prevYibenid = prevYibenid;
   
   // 如果没有需要更新的字段
   if (Object.keys(updateData).length === 0) {
