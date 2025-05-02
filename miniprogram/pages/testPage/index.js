@@ -101,6 +101,29 @@ Page({
     })
     console.log('userOneInfo start');
   },
+  testFuction6() {
+    wx.cloud.callFunction({
+      name: 'operations',
+      data: {
+        type: 'bookManagePage',
+        data: {
+          pageNo: 1,
+          pageSize: 2,
+          condition: {
+            // bookid: "PE1nxknYVIx1kVW0S9NgDnYxdasJFds4",
+            // bookType: 2,
+            schoolid: 1,
+            // bookTimeRanger: ["2025-01-01", "2025-01-02"]
+          }
+        }
+      }
+    }).then(res => {
+      console.log('bookManagePage result:', res)
+    }).catch(err => {
+      console.error('bookManagePage error:', err)
+    })
+    console.log('bookManagePage start');
+  },
   
   /**
    * 生命周期函数--监听页面加载

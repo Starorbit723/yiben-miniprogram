@@ -46,7 +46,7 @@ exports.main = async (params, db) => {
       });
     }
     
-    if (condition.bookType !== undefined) {
+    if (!condition.bookType || ![1, 2].includes(Number(condition.bookType))) {
       whereCondition.bookType = condition.bookType;
     }
     
