@@ -43,22 +43,24 @@
 #### 表1
 1. bookid
 2. bookType 1 单人试听 2 拼团试听
-3. originInfo {yibenid openid}
-4. prevInfo {yibenid openid} 结构与originInfo一致
-5. ownerName
-6. ownerPhone
-7. ownerOpenid
-8. ownerYibenid
-9. schoolid
-10. ownerChildren // 姓名字符串数组
-11. ifPrepaid (后台改)
-12. matchTeacher(后台改)
-13. ifPresent(后台改)
-14. receptionTeacherPhone(后台改)
-15. createTime(后台改)
-16. lessonTime(后台改)
-17. lessonRoom(后台改)
-18. status 0拼团中 1 已预约 2 校区确认中 3 待使用 4 已使用  5 已取消
+3. originOpenid
+4. originYibenid
+5. prevOpenid
+6. prevYibenid
+7. ownerName
+8. ownerPhone
+9. ownerOpenid
+10. ownerYibenid
+11. schoolid
+12. ownerChildren // 姓名字符串数组
+13. ifPrepaid (后台改)
+14. matchTeacher(后台改)
+15. ifPresent(后台改)
+16. receptionTeacherPhone(后台改)
+17. createTime(后台改)
+18. lessonTime(后台改)
+19. lessonRoom(后台改)
+20. status 0拼团中 1 已预约 2 校区确认中 3 待使用 4 已使用  5 已取消
 #### 表2
 
 	1. groupInfoid

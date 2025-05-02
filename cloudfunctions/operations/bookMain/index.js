@@ -17,7 +17,9 @@ exports.main = async (params, db) => {
     ownerName,
     ownerPhone,
     ownerChildren,
-    schoolid
+    schoolid,
+    originYibenid,
+    prevYibenid
   } = params;
 
   // 验证必填字段
@@ -28,10 +30,10 @@ exports.main = async (params, db) => {
     };
   }
 
-  if (!originOpenid || !prevOpenid || !yibenid || !openid) {
+  if (!originOpenid || !prevOpenid || !yibenid || !openid || !originYibenid || !prevYibenid) {
     return {
       success: false,
-      errMsg: '缺少必要参数：originOpenid, prevOpenid, yibenid, openid'
+      errMsg: '缺少必要参数：originOpenid, prevOpenid, yibenid, openid, originYibenid, prevYibenid'
     };
   }
 
@@ -112,6 +114,8 @@ exports.main = async (params, db) => {
       ownerPhone: ownerPhone,
       ownerOpenid: openid,
       ownerYibenid: yibenid,
+      originYibenid,
+      prevYibenid,
       schoolid: schoolid || '',
       ownerChildren,
       ifPrepaid: false,
