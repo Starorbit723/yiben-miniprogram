@@ -68,12 +68,12 @@ Page({
       data: {
         type: 'userManagePage',
         data: {
-          pageNo: 2,
+          pageNo: 1,
           pageSize: 2,
           condition: {
-            // yibenid: 'yb_z2Zsnac',
-            // nickName: '',
-            // phoneNumber: '12345678901',
+            yibenid: 'yb_z2Zsnac',
+            nickName: '哈迪斯的眼泪',
+            phoneNumber: '15011111111',
             // userType: 0
           }
         }

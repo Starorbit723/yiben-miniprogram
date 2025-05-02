@@ -14,6 +14,7 @@ const bookOfUser = require('./bookOfUser/index');
 const bookModify = require('./bookModify/index');
 const userManagePage = require('./userManagePage/index');
 const userOneInfo = require('./userOneInfo/index');
+const bookManagePage = require('./bookManagePage/index');
 
 cloud.init({
   env: "cloud1-0gvvdaq4c40b8f74"
@@ -25,7 +26,7 @@ const db = cloud.database();
 exports.main = async (event, context) => {
   try {
     // 参数基础校验
-    if (!event.type || !['schoolRead', 'schoolSave', 'schoolList', 'userLogin', 'userInfoAuto', 'userInfoMan', 'bookMain', 'bookGroup', 'bookOneInfo', 'bookOfUser', 'bookModify', 'userManagePage', 'userOneInfo'].includes(event.type)) {
+    if (!event.type || !['schoolRead', 'schoolSave', 'schoolList', 'userLogin', 'userInfoAuto', 'userInfoMan', 'bookMain', 'bookGroup', 'bookOneInfo', 'bookOfUser', 'bookModify', 'userManagePage', 'userOneInfo', 'bookManagePage'].includes(event.type)) {
       return { code: 400, message: '无效的操作类型' };
     }
 
@@ -57,6 +58,8 @@ exports.main = async (event, context) => {
         return await userManagePage.main(event.data, db);
       case 'userOneInfo':
         return await userOneInfo.main(event.data, db);
+      case 'bookManagePage':
+        return await bookManagePage.main(event.data, db);
       default:
         return { code: 400, message: '未实现的操作类型' };
     }
