@@ -46,12 +46,16 @@ exports.main = async (params, db) => {
       });
     }
     
-    if (!condition.bookType || ![1, 2].includes(Number(condition.bookType))) {
-      whereCondition.bookType = condition.bookType;
+    if (condition.bookType !== undefined && [1, 2].includes(Number(condition.bookType))) {
+      whereCondition.bookType = Number(condition.bookType);
     }
     
-    if (condition.schoolid) {
-      whereCondition.schoolid = condition.schoolid;
+    if (condition.schoolid !== undefined) {
+      // 确保 schoolid 为整数类型
+      const schoolidInt = parseInt(condition.schoolid, 10);
+      if (!isNaN(schoolidInt)) {
+        whereCondition.schoolid = schoolidInt;
+      }
     }
     
     // 处理时间范围查询

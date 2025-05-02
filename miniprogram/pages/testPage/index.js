@@ -71,10 +71,6 @@ Page({
           pageNo: 1,
           pageSize: 2,
           condition: {
-            yibenid: 'yb_z2Zsnac',
-            nickName: '哈迪斯的眼泪',
-            phoneNumber: '15011111111',
-            // userType: 0
           }
         }
       }
@@ -110,10 +106,10 @@ Page({
           pageNo: 1,
           pageSize: 2,
           condition: {
-            // bookid: "PE1nxknYVIx1kVW0S9NgDnYxdasJFds4",
-            // bookType: 2,
+            bookid: "FuTjiaLvkkBRDX8lDkNrMx8ZLazWoYvc",
+            bookType: 2,
             schoolid: 1,
-            // bookTimeRanger: ["2025-01-01", "2025-01-02"]
+            bookTimeRanger: ["2025-01-01", "2025-01-02"]
           }
         }
       }
