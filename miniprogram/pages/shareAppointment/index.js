@@ -1,4 +1,4 @@
-const { envList } = require("../../envList");
+const app = getApp();
 
 Page({
   data: {
@@ -19,7 +19,7 @@ Page({
     }],
     // 分享数据
     shareFrom: '',
-    orderId: ''
+    bookid: ''
   },
   onLoad(options) {
     if (options.shareFrom === 'pyq') {
@@ -33,17 +33,17 @@ Page({
     });
     this.setData({
       shareFrom: options.shareFrom || '',
-      orderId: options.orderId
+      bookid: options.bookid
     });
-    console.log('orderId', this.data.orderId);
+    console.log('bookid', this.data.bookid);
     this.setData({
-      testConsole: `shareFrom:${options.shareFrom}  orderId:${this.data.orderId}`
+      testConsole: `shareFrom:${options.shareFrom}  bookid:${this.data.bookid}`
     })
   },
   onShareAppMessage() {
     return {
       title: '快来参加壹本英语体验课吧！多人拼团享优惠',
-      path: `/pages/otherAppointment/index?shareFrom=friend&orderId=${this.data.orderId}`,
+      path: `/pages/otherAppointment/index?shareFrom=friend&bookid=${this.data.bookid}`,
       imageUrl: '../../images/shareImg.png',
     };
   },
@@ -51,7 +51,7 @@ Page({
     return {
       title: '快来参加壹本英语体验课吧！多人拼团享优惠',
       imageUrl: '../../images/shareImg.png',
-      query: `shareFrom=pyq&orderId=${this.data.orderId}`
+      query: `shareFrom=pyq&bookid=${this.data.bookid}`
     };
   },
   toQueryString(obj) {

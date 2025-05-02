@@ -1,4 +1,3 @@
-const { envList } = require("../../envList");
 const app = getApp();
 
 Page({
@@ -9,7 +8,7 @@ Page({
       parentName: '',
       studentName: '',
       phoneNumber: '',
-      school: 0
+      school: 1
     },
     schoolOptions: [
       {id: 1 , name: '广安门校区'}
@@ -37,16 +36,16 @@ Page({
     }],
     // 分享数据
     shareFrom: '',
-    orderId: ''
+    bookid: ''
   },
   onLoad(options) {
     this.setData({
       shareFrom: options.shareFrom || '',
-      orderId: options.orderId || ''
+      bookid: options.bookid || ''
     });
-    console.log('orderId', this.data.orderId);
+    console.log('bookid', this.data.bookid);
     this.setData({
-      testConsole: `shareFrom:${options.shareFrom}  orderId:${this.data.orderId}`
+      testConsole: `shareFrom:${options.shareFrom}  bookid:${this.data.bookid}`
     });
   },
   ensureJoinIn() {

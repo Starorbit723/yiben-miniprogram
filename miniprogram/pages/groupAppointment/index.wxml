@@ -7,20 +7,20 @@
   <view class="form-content">
     <view class="input-box">
       <view class="label">家长姓名</view>
-      <input class="yb-input" value="{{form.parentName}}" maxlength="10" placeholder="我们尊重您的隐私, 比如您可以填：张先生/王女士 等" placeholder-style="color:#e09db3;font-size:18rpx;text-align:center;"></input>
+      <input class="yb-input" bindinput="ownerNameInput" value="{{form.ownerName}}" maxlength="10" placeholder="我们尊重您的隐私, 比如您可以填：张先生/王女士 等" placeholder-style="color:#e09db3;font-size:18rpx;text-align:center;"></input>
     </view>
     <view class="input-box">
       <view class="label">学生姓名</view>
-      <input class="yb-input" value="{{form.studentName}}" maxlength="10"></input>
+      <input class="yb-input" bindinput="ownerChildrenInput" value="{{form.ownerChildren}}" maxlength="10"></input>
     </view>
     <view class="input-box">
       <view class="label">联系方式</view>
-      <input class="yb-input" value="{{form.phoneNumber}}" type="number" maxlength="11" placeholder="请保持电话畅通，方便后续有老师联系您" placeholder-style="color:#e09db3;font-size:18rpx;text-align:center;"></input>
+      <input class="yb-input" bindinput="ownerPhoneInput" value="{{form.ownerPhone}}" type="number" maxlength="11" placeholder="请保持电话畅通，方便后续有老师联系您" placeholder-style="color:#e09db3;font-size:18rpx;text-align:center;"></input>
     </view>
     <view class="input-box">
       <view class="label">预约校区</view>
-      <picker class="yb-picker" value="{{form.school}}" mode="selector" range-key="name" range="{{schoolOptions}}">
-        <view>{{schoolOptions[form.school].name}}</view>
+      <picker class="yb-picker" value="{{form.schoolid}}" mode="selector" range-key="name" range="{{schoolOptions}}">
+        <view>{{schoolOptions[form.schoolid - 1].name}}</view>
       </picker>
     </view>
   </view>
@@ -35,7 +35,7 @@
     ></map>
   </view>
   <view class="ensure-btn">
-    <yb-button bindtap="gotoShareAppointment" btnText="确认并发起拼团" width="450" height="80" fontSize="34" fontWeight="700"></yb-button>
+    <yb-button bindtap="submitGroupAppointment" btnText="确认并发起拼团" width="450" height="80" fontSize="34" fontWeight="700"></yb-button>
   </view>
   
 </view>

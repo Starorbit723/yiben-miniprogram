@@ -1,12 +1,13 @@
-const { envList } = require("../../envList");
+const app = getApp();
 
 Page({
   data: {
+    bookid: '',
     form: {
-      parentName: '',
-      studentName: '',
-      phoneNumber: '',
-      school: 0
+      ownerName: '',
+      ownerChildren: '',
+      ownerPhone: '',
+      schoolid: 1
     },
     schoolOptions: [
       {id: 1 , name: '广安门校区'}
@@ -33,10 +34,57 @@ Page({
       text2: '享受优惠'
     }]
   },
+  submitGroupAppointment() {
+    console.log('bookMain call', this.data.form);
+    console.log('globalData', app.globalData);
+    wx.cloud.callFunction({
+      name: 'operations',
+      data: {
+        type: 'bookMain',
+        data: {
+          yibenid: app.globalData.userInfo.yibenid,
+          openid: app.globalData.userInfo.openid,
+          bookType: 2,
+          originYibenid: app.globalData.originYibenid ? app.globalData.originYibenid : app.globalData.userInfo.yibenid,
+          originOpenid: app.globalData.originOpenid ? app.globalData.originOpenid : app.globalData.userInfo.openid,
+          prevYibenid: app.globalData.prevYibenid ? app.globalData.prevYibenid : app.globalData.userInfo.yibenid,
+          prevOpenid: app.globalData.prevOpenid ? app.globalData.prevOpenid : app.globalData.userInfo.openid,
+          ownerName: this.data.form.ownerName,
+          ownerPhone: this.data.form.ownerPhone,
+          ownerChildren: this.data.form.ownerChildren,
+          schoolid: this.data.form.schoolid,
+        },
+      }
+    }).then(res => {
+      console.log('bookMain result:', res);
+      if (res.result.success) {
+        this.setData({
+          bookid: res.result.bookid
+        });
+        this.gotoShareAppointment();
+      }
+    }).catch(err => {
+      console.error('bookMain error:', err);
+    });
+  },
   gotoShareAppointment() {
-
     wx.navigateTo({
-      url: `/pages/shareAppointment/index?orderId=12345`,
+      url: `/pages/shareAppointment/index?bookid=${this.bookid}`,
+    });
+  },
+  ownerNameInput(e) {
+    this.setData({
+      [`form.ownerName`]: e.detail.value
+    });
+  },
+  ownerChildrenInput(e) {
+    this.setData({
+      [`form.ownerChildren`]: [ e.detail.value ]
+    });
+  },
+  ownerPhoneInput(e) {
+    this.setData({
+      [`form.ownerPhone`]: e.detail.value
     });
   },
 });

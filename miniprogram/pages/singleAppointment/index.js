@@ -1,4 +1,3 @@
-const { envList } = require("../../envList");
 const app = getApp();
 
 Page({
@@ -24,7 +23,7 @@ Page({
   },
   submitSigleAppointment() {
     console.log('bookMain call', this.data.form);
-    console.log('读取', app.globalData);
+    console.log('globalData', app.globalData);
     wx.cloud.callFunction({
       name: 'operations',
       data: {
@@ -44,7 +43,18 @@ Page({
         },
       }
     }).then(res => {
-      console.log('userInfoAuto result:', res);
+      console.log('bookMain result:', res);
+      wx.showToast({
+        title: '预约成功，您可以在我的订单中查看预约信息',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      setTimeout(() => {
+        wx.switchTab({
+          url: '/pages/userCenter/index'
+        })
+      }, 2000);
       if (res.result.success) {
         this.setData({
           bookid: res.result.bookid
