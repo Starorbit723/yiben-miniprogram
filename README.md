@@ -27,7 +27,7 @@
 13. gender
 14. language
 15. age
-16. userType 0 客户 1 销售 2 老师  (后管)
+16. userType 1 客户 2 员工
 ## 接口
 1. 登录 ，获取openid 并检查是否为存量客户，不过不是，创建新用户 （yb_xxxxxxx）
 	1. 入参 无

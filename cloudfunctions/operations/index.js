@@ -7,6 +7,7 @@ const schoolList = require('./schoolList/index');
 const userLogin = require('./userLogin/index');
 const userInfoAuto = require('./userInfoAuto/index');
 const userInfoMan = require('./userInfoMan/index');
+const userInfoModify = require('./userInfoModify/index');
 const bookMain = require('./bookMain/index');
 const bookGroup = require('./bookGroup/index');
 const bookOneInfo = require('./bookOneInfo/index');
@@ -26,7 +27,7 @@ const db = cloud.database();
 exports.main = async (event, context) => {
   try {
     // 参数基础校验
-    if (!event.type || !['schoolRead', 'schoolSave', 'schoolList', 'userLogin', 'userInfoAuto', 'userInfoMan', 'bookMain', 'bookGroup', 'bookOneInfo', 'bookOfUser', 'bookModify', 'userManagePage', 'userOneInfo', 'bookManagePage'].includes(event.type)) {
+    if (!event.type || !['schoolRead', 'schoolSave', 'schoolList', 'userLogin', 'userInfoAuto', 'userInfoMan', 'userInfoModify', 'bookMain', 'bookGroup', 'bookOneInfo', 'bookOfUser', 'bookModify', 'userManagePage', 'userOneInfo', 'bookManagePage'].includes(event.type)) {
       return { code: 400, message: '无效的操作类型' };
     }
 
@@ -44,6 +45,8 @@ exports.main = async (event, context) => {
         return await userInfoAuto.main(event.data, db);
       case 'userInfoMan':
         return await userInfoMan.main(event.data, db);
+      case 'userInfoModify':
+        return await userInfoModify.main(event.data, db);
       case 'bookMain':
         return await bookMain.main(event.data, db);
       case 'bookGroup':
