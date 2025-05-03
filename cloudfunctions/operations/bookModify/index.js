@@ -23,9 +23,25 @@ exports.main = async (params, db) => {
   const updateData = {};
   
   // 添加有值的字段到更新对象
-  if (ifPrepaid !== undefined) updateData.ifPrepaid = ifPrepaid;
+  if (ifPrepaid !== undefined) {
+    if (ifPrepaid !== '0' && ifPrepaid !== '1') {
+      return {
+        success: false,
+        errMsg: 'ifPrepaid 必须是 "0" 或 "1"'
+      };
+    }
+    updateData.ifPrepaid = ifPrepaid;
+  }
   if (matchTeacher !== undefined) updateData.matchTeacher = matchTeacher;
-  if (ifPresent !== undefined) updateData.ifPresent = ifPresent;
+  if (ifPresent !== undefined) {
+    if (ifPresent !== '0' && ifPresent !== '1') {
+      return {
+        success: false,
+        errMsg: 'ifPresent 必须是 "0" 或 "1"'
+      };
+    }
+    updateData.ifPresent = ifPresent;
+  }
   if (receptionTeacherPhone !== undefined) updateData.receptionTeacherPhone = receptionTeacherPhone;
   if (lessonTime !== undefined) updateData.lessonTime = lessonTime;
   if (lessonRoom !== undefined) updateData.lessonRoom = lessonRoom;

@@ -25,7 +25,7 @@ Page({
       data: {
         type: 'schoolRead',
         data: {
-          schoolid: 'haidian_1'
+          schoolid: 1,
         }
       }
     }).then(res => {
@@ -41,7 +41,7 @@ Page({
       data: {
         type: 'schoolSave',
         data: {
-          schoolid: 'haidian_2',
+          schoolid: 100,
           detail: {
             area:"1000",
             code:"123",
