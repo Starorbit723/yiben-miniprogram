@@ -46,6 +46,12 @@ exports.main = async (params, db) => {
     }
     
     if (condition.userType !== undefined) {
+      if (condition.userType !== 1 && condition.userType !== 2) {
+        return {
+          success: false,
+          errMsg: 'userType 必须是 1(客户) 或 2(员工)'
+        };
+      }
       whereCondition.userType = condition.userType;
     }
     
