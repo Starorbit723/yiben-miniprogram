@@ -8,13 +8,13 @@ exports.main = async (params, db) => {
     };
   }
 
-  const { url, fileId, createTime, type, name } = params;
+  const { url, fileId, type, name } = params;
 
   // 检查必要参数
-  if (!url || !fileId || !createTime || !type || !name) {
+  if (!url || !fileId || !type || !name) {
     return {
       success: false,
-      errMsg: '缺少必要参数：url, fileId, createTime, type, name'
+      errMsg: '缺少必要参数：url, fileId, type, name'
     };
   }
 
@@ -25,6 +25,9 @@ exports.main = async (params, db) => {
       errMsg: '资源类型无效，应为 1(图片) 或 2(视频)'
     };
   }
+
+  // 自动生成当前时间戳
+  const createTime = Date.now();
 
   // 构建存储对象
   const resourceData = {
