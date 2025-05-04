@@ -89,6 +89,15 @@ exports.main = async (params, db) => {
       };
     }
     
+    // 检查拼团参与者是否是主订单的预约人
+    const mainBooker = bookResult.data[0];
+    if (mainBooker.yibenid === memberYibenid) {
+      return {
+        success: false,
+        errMsg: '您是主订单预约人，无法参与自己的拼团'
+      };
+    }
+    
     // 检查该bookid的拼团人数是否已达上限
     const groupCount = await groupInfoCollection
       .where({
