@@ -89,6 +89,15 @@ exports.main = async (params, db) => {
       };
     }
     
+    // 检查拼团参与者是否是主订单的预约人
+    const mainBooker = bookResult.data[0];
+    if (mainBooker.ownerYibenid === memberYibenid) {
+      return {
+        success: false,
+        errMsg: '您是主订单预约人，无法参与自己的拼团'
+      };
+    }
+    
     // 检查该bookid的拼团人数是否已达上限
     const groupCount = await groupInfoCollection
       .where({
@@ -96,7 +105,7 @@ exports.main = async (params, db) => {
       })
       .count();
     
-    if (groupCount.total >= 2) {
+    if (groupCount.total >= 3) {
       return {
         success: false,
         errMsg: '该拼团已达到最大参与人数'
@@ -180,7 +189,7 @@ exports.main = async (params, db) => {
       })
       .count();
     
-    if (updatedGroupCount.total >= 2) {
+    if (updatedGroupCount.total >= 3) {
       // 拼团已满，更新预约状态为"已预约(1)"
       await bookCollection
         .where({
@@ -197,7 +206,7 @@ exports.main = async (params, db) => {
       success: true,
       message: '拼团参与成功',
       groupInfoid,
-      isFull: updatedGroupCount.total >= 2
+      isFull: updatedGroupCount.total >= 3
     };
     
   } catch (err) {

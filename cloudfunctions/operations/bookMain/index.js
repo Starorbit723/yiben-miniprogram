@@ -74,7 +74,7 @@ exports.main = async (params, db) => {
   function generateBookId() {
     const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let result = '';
-    for (let i = 0; i < 32; i++) {
+    for (let i = 0; i < 16; i++) {
       result += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     return result;
@@ -130,14 +130,14 @@ exports.main = async (params, db) => {
       prevYibenid,
       schoolid: schoolidInt,
       ownerChildren,
-      ifPrepaid: false,
+      ifPrepaid: '0',
       matchTeacher: '',
-      ifPresent: false,
+      ifPresent: '0',
       receptionTeacherPhone: '',
       createTime: db.serverDate(),
       lessonTime: '',
       lessonRoom: '',
-      status: 0  // 拼团中:0, 已预约:1
+      status: Number(bookType) === 1 ? 1 : 0  // 单人试听:直接设置为已预约(1), 拼团:设置为拼团中(0)
     };
     
     // 保存预约记录

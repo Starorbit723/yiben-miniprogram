@@ -1,0 +1,234 @@
+{
+    "previewTableName": "group_info-preview",
+    "publishCacheStatus": "ready",
+    "subType": "database",
+    "schema": {
+        "x-primary-column": "_id",
+        "x-kind": "tcb",
+        "x-defaultMethods": [
+            "wedaCreate",
+            "wedaUpdate",
+            "wedaDelete",
+            "wedaGetItem",
+            "wedaGetRecords",
+            "wedaGetList",
+            "wedaBatchCreate",
+            "wedaBatchUpdate",
+            "wedaBatchDelete"
+        ],
+        "type": "object",
+        "x-relatedType": "exist",
+        "x-viewId": "view-6quxu36r9s",
+        "required": [],
+        "properties": {
+            "owner": {
+                "default": "",
+                "x-system": true,
+                "x-id": "49a7851",
+                "name": "owner",
+                "format": "father-son",
+                "pattern": "",
+                "x-hidden": true,
+                "x-index": 4,
+                "title": "所有人",
+                "type": "string",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "memberOpenid": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "217f4ad4",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 4,
+                "title": "团员openid",
+                "x-unique": false
+            },
+            "_departmentList": {
+                "default": "",
+                "x-system": true,
+                "x-id": "71de9e4",
+                "format": "",
+                "name": "_departmentList",
+                "x-hidden": true,
+                "title": "所属部门",
+                "type": "array",
+                "x-index": 7,
+                "items": {
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "memberName": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "51375d3b",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 8,
+                "title": "团员家长信息",
+                "x-unique": false
+            },
+            "bookid": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "42d2c9db",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 14,
+                "title": "预定id",
+                "x-unique": false
+            },
+            "createdAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "c70892d",
+                "format": "datetime",
+                "x-index": 2,
+                "type": "number",
+                "title": "创建时间",
+                "x-unique": false
+            },
+            "memberChildren": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "19b1bec3",
+                "format": "",
+                "description": "",
+                "type": "array",
+                "x-index": 47,
+                "title": "参团孩子姓名",
+                "items": {
+                    "format": "",
+                    "type": "string"
+                },
+                "x-unique": false
+            },
+            "memberPhone": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "2c95468f",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 12,
+                "title": "家长手机号",
+                "x-unique": false
+            },
+            "createBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "c97ca75",
+                "name": "createBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-hidden": true,
+                "x-index": 5,
+                "type": "string",
+                "title": "创建人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "memberYibenid": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "9f5abda3",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 6,
+                "title": "团员yibenid",
+                "x-unique": false
+            },
+            "updateBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "93a079a",
+                "name": "updateBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-hidden": true,
+                "x-index": 6,
+                "type": "string",
+                "title": "修改人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "_openid": {
+                "default": "",
+                "x-system": true,
+                "x-id": "24e5d68",
+                "name": "_openid",
+                "format": "",
+                "pattern": "",
+                "description": "仅微信云开发下使用",
+                "x-index": 45,
+                "title": "记录创建者",
+                "type": "string",
+                "x-unique": false
+            },
+            "_id": {
+                "default": "",
+                "x-system": true,
+                "x-id": "d9d9bba",
+                "format": "",
+                "pattern": "",
+                "x-index": 1,
+                "type": "string",
+                "title": "数据标识",
+                "x-unique": true
+            },
+            "groupInfoid": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "c77f8456",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 2,
+                "title": "参团信息id",
+                "x-unique": true
+            },
+            "updatedAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "a0b3333",
+                "format": "datetime",
+                "x-index": 3,
+                "title": "更新时间",
+                "type": "number",
+                "x-unique": false
+            }
+        }
+    },
+    "dbInstanceType": "FLEXDB",
+    "title": "参团信息",
+    "name": "group_info",
+    "dbLinkType": "internal",
+    "tableNameRule": "only_name",
+    "type": "database",
+    "updateTime": "2025-04-19T15:37:50",
+    "publishedTableName": "group_info",
+    "id": "data-4EhSFbFmm",
+    "dbSourceType": "internal_flexdb",
+    "methods": [],
+    "fun": "{\"onlineVersion\": 6, \"previewVersion\": 5, \"onlinePublishAt\": 1745077070631, \"prviewPublishAt\": 1745077069926}",
+    "publishStatus": 1,
+    "configuration": {}
+}

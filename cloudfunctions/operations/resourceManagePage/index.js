@@ -1,4 +1,4 @@
-// 用户管理分页查询
+// 资源管理分页查询
 exports.main = async (params, db) => {
   // 参数校验
   if (!params) {
@@ -17,51 +17,54 @@ exports.main = async (params, db) => {
   const skip = (pageNo - 1) * pageSize;
 
   try {
-    // 获取用户表引用
-    const userCollection = db.collection('user');
+    // 获取资源表引用
+    const resourceCollection = db.collection('resource');
     
     // 构建查询条件
     let whereCondition = {};
     
     // 添加有值的查询条件（按AND逻辑组合）
-    if (condition.yibenid) {
-      whereCondition.yibenid = db.RegExp({
-        regexp: condition.yibenid,
+    if (condition.name) {
+      whereCondition.name = db.RegExp({
+        regexp: condition.name,
         options: 'i'
       });
     }
     
-    if (condition.nickName) {
-      whereCondition.nickName = db.RegExp({
-        regexp: condition.nickName,
+    if (condition.url) {
+      whereCondition.url = db.RegExp({
+        regexp: condition.url,
         options: 'i'
       });
     }
     
-    if (condition.phoneNumber) {
-      whereCondition.phoneNumber = db.RegExp({
-        regexp: condition.phoneNumber,
+    if (condition.fileId) {
+      whereCondition.fileId = db.RegExp({
+        regexp: condition.fileId,
         options: 'i'
       });
     }
     
-    if (condition.userType !== undefined) {
-      if (condition.userType !== 1 && condition.userType !== 2) {
-        return {
-          success: false,
-          errMsg: 'userType 必须是 1(客户) 或 2(员工)'
-        };
-      }
-      whereCondition.userType = condition.userType;
+    if (condition.type !== undefined && [1, 2].includes(Number(condition.type))) {
+      whereCondition.type = Number(condition.type);
+    }
+    
+    // 处理时间范围查询
+    if (condition.uploadTimeRanger && Array.isArray(condition.uploadTimeRanger) && condition.uploadTimeRanger.length === 2) {
+      const [startTime, endTime] = condition.uploadTimeRanger;
+      whereCondition.createTime = db.command.and([
+        db.command.gte(startTime),
+        db.command.lte(endTime)
+      ]);
     }
     
     // 查询总记录数
-    const countResult = await userCollection
+    const countResult = await resourceCollection
       .where(whereCondition)
       .count();
     
-    // 分页查询用户数据
-    const usersResult = await userCollection
+    // 分页查询资源数据
+    const resourcesResult = await resourceCollection
       .where(whereCondition)
       .skip(skip)
       .limit(pageSize)
@@ -71,7 +74,7 @@ exports.main = async (params, db) => {
     return {
       success: true,
       data: {
-        list: usersResult.data,
+        list: resourcesResult.data,
         total: countResult.total,
         pageNo: pageNo,
         pageSize: pageSize,

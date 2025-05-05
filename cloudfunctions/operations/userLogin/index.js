@@ -84,7 +84,7 @@ exports.main = async (params, db) => {
         unionid: UNIONID || '',
         children: [],
         point: 0,
-        userType: 0  // 默认为客户
+        userType: 1  // 1: 客户, 2: 员工
       };
       
       const addResult = await userCollection.add({

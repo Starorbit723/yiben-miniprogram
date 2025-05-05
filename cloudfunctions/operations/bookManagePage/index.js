@@ -46,6 +46,20 @@ exports.main = async (params, db) => {
       });
     }
     
+    if (condition.originYibenid) {
+      whereCondition.originYibenid = db.RegExp({
+        regexp: condition.originYibenid,
+        options: 'i'
+      });
+    }
+    
+    if (condition.prevYibenid) {
+      whereCondition.prevYibenid = db.RegExp({
+        regexp: condition.prevYibenid,
+        options: 'i'
+      });
+    }
+    
     if (condition.bookType !== undefined && [1, 2].includes(Number(condition.bookType))) {
       whereCondition.bookType = Number(condition.bookType);
     }

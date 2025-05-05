@@ -53,6 +53,13 @@ exports.main = async (params, db) => {
       }
     });
     
+    // 按照创建时间倒序排列
+    allBookRecords.sort((a, b) => {
+      const timeA = a.createTime instanceof Date ? a.createTime.getTime() : new Date(a.createTime).getTime();
+      const timeB = b.createTime instanceof Date ? b.createTime.getTime() : new Date(b.createTime).getTime();
+      return timeB - timeA; // 降序排列
+    });
+    
     // 对每个预约记录，查询相应的拼团信息
     const bookRecordsWithGroups = await Promise.all(
       allBookRecords.map(async (bookRecord) => {
