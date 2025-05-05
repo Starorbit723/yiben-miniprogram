@@ -1,0 +1,211 @@
+{
+    "previewTableName": "resource-preview",
+    "publishCacheStatus": "ready",
+    "subType": "database",
+    "schema": {
+        "x-primary-column": "_id",
+        "x-kind": "tcb",
+        "x-defaultMethods": [
+            "wedaCreate",
+            "wedaDelete",
+            "wedaUpdate",
+            "wedaGetItem",
+            "wedaGetList",
+            "wedaGetRecords",
+            "wedaBatchCreate",
+            "wedaBatchUpdate",
+            "wedaBatchDelete"
+        ],
+        "type": "object",
+        "x-relatedType": "exist",
+        "x-viewId": "view-6sll8s4gsw",
+        "required": [
+            "name"
+        ],
+        "properties": {
+            "owner": {
+                "default": "",
+                "x-system": true,
+                "x-id": "30907c0",
+                "name": "owner",
+                "format": "father-son",
+                "pattern": "",
+                "x-hidden": true,
+                "x-index": 12,
+                "title": "所有人",
+                "type": "string",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "_mainDep": {
+                "x-system": true,
+                "x-id": "7b81de6",
+                "format": "father-son",
+                "name": "_mainDep",
+                "x-hidden": true,
+                "title": "所属主管部门",
+                "type": "string",
+                "x-index": 13,
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_department"
+                }
+            },
+            "type": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "283f1ea6",
+                "format": "",
+                "description": "",
+                "type": "number",
+                "x-index": 4,
+                "title": "资源类型",
+                "x-unique": false
+            },
+            "url": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "4cc2adf3",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 10,
+                "title": "资源地址",
+                "x-unique": false
+            },
+            "createdAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "59a5b63",
+                "format": "datetime",
+                "x-index": 14,
+                "type": "number",
+                "title": "创建时间",
+                "x-unique": false
+            },
+            "createBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "e047d5b",
+                "name": "createBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-hidden": true,
+                "x-index": 15,
+                "type": "string",
+                "title": "创建人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "createTime": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "8367b422",
+                "format": "datetime",
+                "description": "",
+                "type": "number",
+                "x-index": 6,
+                "title": "上传时间",
+                "x-unique": false
+            },
+            "updateBy": {
+                "default": "",
+                "x-system": true,
+                "x-id": "93a079a",
+                "name": "updateBy",
+                "format": "father-son",
+                "pattern": "",
+                "x-hidden": true,
+                "x-index": 16,
+                "type": "string",
+                "title": "修改人",
+                "x-unique": false,
+                "x-parent": {
+                    "fatherAction": "judge",
+                    "type": "father-son",
+                    "parentDataSourceName": "sys_user"
+                }
+            },
+            "_openid": {
+                "default": "",
+                "x-system": true,
+                "x-id": "a5bfc97",
+                "name": "_openid",
+                "format": "",
+                "pattern": "",
+                "description": "仅微信云开发下使用",
+                "x-index": 17,
+                "title": "记录创建者",
+                "type": "string",
+                "x-unique": false
+            },
+            "name": {
+                "x-required": true,
+                "x-keyPath": "",
+                "x-id": "e71e881c",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 2,
+                "title": "资源名称",
+                "x-unique": false
+            },
+            "_id": {
+                "default": "",
+                "x-system": true,
+                "x-id": "e39015b",
+                "format": "",
+                "pattern": "",
+                "x-index": 18,
+                "type": "string",
+                "title": "数据标识",
+                "x-unique": true
+            },
+            "fileId": {
+                "x-required": false,
+                "x-keyPath": "",
+                "x-id": "cd6a19b2",
+                "format": "",
+                "description": "",
+                "type": "string",
+                "x-index": 8,
+                "title": "文件id",
+                "x-unique": false
+            },
+            "updatedAt": {
+                "default": 0,
+                "x-system": true,
+                "x-id": "7af2458",
+                "format": "datetime",
+                "x-index": 19,
+                "title": "更新时间",
+                "type": "number",
+                "x-unique": false
+            }
+        }
+    },
+    "dbInstanceType": "FLEXDB",
+    "title": "资源",
+    "name": "resource",
+    "dbLinkType": "internal",
+    "tableNameRule": "only_name",
+    "type": "database",
+    "updateTime": "2025-05-03T12:31:02",
+    "publishedTableName": "resource",
+    "id": "data-4GgfTmr3v",
+    "dbSourceType": "internal_flexdb",
+    "methods": [],
+    "fun": "{\"onlineVersion\": 2, \"previewVersion\": 1, \"onlinePublishAt\": 1746275462358, \"prviewPublishAt\": 1746275458265}",
+    "publishStatus": 1,
+    "configuration": {}
+}
