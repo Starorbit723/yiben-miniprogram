@@ -1,27 +1,27 @@
 <!--index.wxml-->
 <view class="container">
   <view class="order-list">
-    <view class="order-item" wx:for="{{orderList}}" wx:key="{{orderNo}}">
+    <view class="order-item" wx:for="{{bookList}}" wx:key="{{orderNo}}">
       <view class="top">
-        <view class="order-num">预约编号：{{item.orderNo}}</view>
-        <view class="order-time">创建时间：{{item.orderTime}}</view>
+        <view class="order-num">预约单：{{item.bookid}}</view>
+        <view class="order-time">创建时间：{{item.createTimeShow}}</view>
       </view>
       <view class="middle">
         <view class="order-status-hook">
           <yb-order-status status="{{item.status}}"></yb-order-status>
         </view>
-        <view class="label-text">订单类型：{{item.orderType}}</view>
-        <view class="label-text">授课老师：{{item.teacher}}</view>
-        <view class="label-text">授课时间：{{item.time}}</view>
-        <view class="label-text">授课教师：{{item.classroom}}</view>
+        <view class="label-text">订单类型：{{item.bookTypeNameShow}}</view>
+        <view class="label-text">授课老师：{{item.matchTeacher}}</view>
+        <view class="label-text">授课时间：{{item.lessonTimeShow}}</view>
+        <view class="label-text">授课教室：{{item.lessonRoom}}</view>
       </view>
-      <view class="strench-content" wx:if="{{item.childList}}">
+      <view class="strench-content" wx:if="{{item.bookType === 2}}">
         <!-- 子订单 -->
         <view class="show-hide" wx:if="{{item.strench}}">
-          <view class="hide-item" wx:for="{{item.childList}}" wx:for-item="item2" wx:key="{{item2}}">
-            <view class="hidelabel-text">家长姓名：{{item2.name}}</view>
-            <view class="hidelabel-text">学生姓名：{{item2.childName}}</view>
-            <view class="hidelabel-text">联系方式：{{item2.phone}}</view>
+          <view class="hide-item" wx:for="{{item.groupInfoList}}" wx:for-item="item2" wx:key="{{item2}}">
+            <view class="hidelabel-text">家长姓名：{{item2.memberName}}</view>
+            <view class="hidelabel-text">学生姓名：{{item2.memberChildren}}</view>
+            <view class="hidelabel-text">联系方式：{{item2.memberPhone}}</view>
           </view>
         </view>
         <view class="toggle-button-zone" wx:if="{{!item.strench}}" bind:tap="openDetail" data-index="{{index}}">
@@ -34,8 +34,8 @@
         </view>
       </view>
       <view class="bottom">
-        <view class="order-people">订单人：{{item.orderMainPeople}} {{item.phone}}</view>
-        <view class="order-school">{{item.school}}</view>
+        <view class="order-people">订单人：{{item.ownerName}} {{item.ownerPhone}}</view>
+        <view class="order-school">{{item.schoolName}}</view>
       </view>
     </view>
   </view>

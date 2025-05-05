@@ -64,7 +64,16 @@ Page({
       });
       return;
     }
-    console.log('1222233', this.data.form.children);
+    if (len === 0) {
+      this.setData({
+        [`form.children[0]`]: {
+          name: '',
+          age: '',
+          gender: 1
+        }
+      });
+      return;
+    }
     if (!this.data.form.children[len - 1].name || !this.data.form.children[len - 1].age) {
       wx.showToast({
         title: '请您先完成上一个学生信息的填写',
@@ -179,7 +188,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    console.log('userInfo', app.globalData.userInfo);
+    this.setData({
+      'form.parentName': app.globalData.userInfo.parentName || '',
+      'form.phoneNumber': app.globalData.userInfo.phoneNumber || '',
+      'form.children': app.globalData.userInfo.children|| [],
+    });
   },
 
   /**
@@ -198,11 +212,6 @@ Page({
         delta: 1
       });
     }
-    this.setData({
-      'form.parentName': app.globalData.userInfo.parentName,
-      'form.phoneNumber': app.globalData.userInfo.phoneNumber,
-      'form.children': app.globalData.userInfo.children
-    });
   },
 
   /**

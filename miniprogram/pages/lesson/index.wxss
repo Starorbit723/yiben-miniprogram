@@ -1,4 +1,4 @@
-/* pages/lesson/index.wxss */
+/* pages/textBook/index.wxss */
 page {
   background-color: #ec4b7d;
 }
@@ -8,29 +8,83 @@ page {
   padding: 40rpx 20rpx;
   font-family: '黑体';
 }
-.subtitle{
+.day-cycle{
+  margin-bottom: 40rpx;
+}
+
+.daytitle{
   height: 40rpx;
   line-height: 40rpx;
+  font-size: 28rpx;
   color: #FFF;
-  font-size: 34rpx;
-  font-weight: 700;
+  margin-bottom: 10rpx;
 }
-.sep{
-  margin-top: 80rpx;
+.day-box{
+  position: relative;
 }
-.text{
-  margin: 30rpx 10rpx 0 10rpx;
-  line-height: 44rpx;
-  font-size: 30rpx;
-  color: #FFF;
-}
-.wugan{
-  display: block;
-  margin: 0 auto;
-  width: 623rpx;
-  height: 616rpx;
-}
-.kouyu{
-  margin-top: 30rpx;
+
+.timeline{
   width: 100%;
+}
+.timeline-item {
+  height: 60rpx;
+  line-height: 44rpx;
+  font-size: 22rpx;
+  color: #FFF;
+  text-indent: 10rpx;
+  background-color: rgba(255,255,255,0.2);
+}
+.timeline-item2 {
+  height: 60rpx;
+  line-height: 44rpx;
+  font-size: 22rpx;
+  color: #FFF;
+  text-indent: 10rpx;
+}
+.teacher-zone{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 110rpx;
+  bottom: 0;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.teacher-single{
+  position: relative;
+  display: inline-block;
+  width: 270rpx;
+  margin-right: 5rpx;
+  height: 100%;
+  white-space: normal;
+}
+.schdule-item{
+  position: absolute;
+  width: 100%;
+  background: #FFF;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+.stitle{
+  height: 30rpx;
+  line-height: 30rpx;
+  font-size: 20rpx;
+  text-indent: 10rpx;
+  color: #fff;
+}
+.teacher-room{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  text-indent: 10rpx;
+}
+.lesson{
+  display:block;
+  width: 100% - 20rpx;
+  line-height: 30rpx;
+  font-size: 24rpx;
+  padding: 0 10rpx;
+  white-space: pre-wrap;
+  word-break: break-all;
 }

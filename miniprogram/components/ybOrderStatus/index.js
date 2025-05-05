@@ -1,4 +1,6 @@
 // components/ybOrderStatus.js
+const { bookStatus } = require("../../utils/common.js");
+
 Component({
 
   /**
@@ -17,20 +19,13 @@ Component({
   observers: {
     'status': function (status) {
       let _text = '';
-      let _color= ''
-      switch (status) {
-        case 0:
-          _text = '预约成功';
-          _color = '#099220';
-          break;
-        case 1:
-          _text = '校区确认中';
-          _color = '#099220';
-          break;
-        default:
-          _text = '';
-          _color = '';
-      }
+      let _color= '';
+      bookStatus.forEach(ele => {
+        if (status === ele.id) {
+          _text = ele.name;
+          _color = ele.color;
+        }
+      });
       this.setData({
         text: _text,
         color: _color

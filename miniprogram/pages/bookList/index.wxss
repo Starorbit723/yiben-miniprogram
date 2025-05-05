@@ -24,12 +24,12 @@
   color: #FFF;
 }
 .order-num{
-  width: 50%;
+  width: 55%;
   float: left;
-  font-size: 24rpx;
+  font-size: 22rpx;
 }
 .order-time{
-  width: 50%;
+  width: 45%;
   float: right;
   font-size: 20rpx;
   text-align: right;

@@ -1,5 +1,3 @@
-const { envList } = require("../../envList");
-
 Page({
   data: {
     stepList: [{
@@ -18,7 +16,7 @@ Page({
   },
   gotoUsercenter() {
     wx.redirectTo({
-      url: `/pages/orderList/index`,
+      url: `/pages/bookList/index`,
     });
   },
 });

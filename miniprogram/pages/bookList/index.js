@@ -1,70 +1,68 @@
-// pages/userCenter/index.js
-Page({
+const app = getApp();
+const { schoolNameShow, bookTypeName, formatDate } = require("../../utils/common.js");
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    orderList: [{
-      orderNo: 'YBYY1234567890',
-      orderType: '预约试听(单人)',
-      teacher: 'Mike',
-      time: '2025-3-19 14:00~16:00',
-      classroom: '第5教室',
-      status: 0,
-      orderMainPeople: '张先生',
-      phone: '13312345678',
-      school: '广安门校区',
-      orderTime: '2025-03-16 15:23:46',
-      strench: false,
-    }, {
-      orderNo: 'YBYY1234567890',
-      orderType: '预约试听(单人)',
-      teacher: 'Mike',
-      time: '2025-3-19 14:00~16:00',
-      classroom: '第5教室',
-      status: 1,
-      orderMainPeople: '张先生',
-      phone: '13312345678',
-      school: '广安门校区',
-      orderTime: '2025-03-16 15:23:46',
-      strench: false,
-      childList: [
-        {
-          name: '小明妈妈',
-          childName: '王小明',
-          phone: '13312345678'
-        },
-        {
-          name: '小红爸爸',
-          childName: '李小红',
-          phone: '13312345678'
-        },
-        {
-          name: '小刚妈妈',
-          childName: '赵小刚',
-          phone: '13312345678'
-        }
-      ]
-    }],
+    bookList: [],
   },
   openDetail(e) {
     console.log(e.currentTarget.dataset.index);
     this.setData({
-      [`orderList[${e.currentTarget.dataset.index}].strench`]: true
+      [`bookList[${e.currentTarget.dataset.index}].strench`]: true
     });
   },
   closeDetail(e) {
     console.log(e.currentTarget.dataset.index);
     this.setData({
-      [`orderList[${e.currentTarget.dataset.index}].strench`]: false
+      [`bookList[${e.currentTarget.dataset.index}].strench`]: false
     });
+  },
+  getUserBookList() {
+    console.log('bookOfUser call', this.data.form);
+    console.log('globalData', app.globalData);
+    wx.cloud.callFunction({
+      name: 'operations',
+      data: {
+        type: 'bookOfUser',
+        data: {
+          yibenid: app.globalData.userInfo.yibenid,
+        },
+      }
+    }).then(res => {
+      console.log('bookOfUser result:', res);
+      if (res.result.success) {
+        this.setData({
+          bookList: this.filterBookList(res.result.data),
+        });
+      }
+    }).catch(err => {
+      console.error('bookOfUser error:', err);
+    });
+  },
+  filterBookList(list) {
+    if (list && list.length >= 1) {
+      list.forEach(item => {
+        item.strench = false;
+        item.schoolName = schoolNameShow(item.schoolid);
+        item.createTimeShow = formatDate(item.createTime);
+        item.bookTypeNameShow = bookTypeName(item.bookType);
+        item.matchTeacher = item.matchTeacher || '待分配';
+        item.lessonTimeShow = item.lessonTime ? formatDate(item.lessonTime) : '待校区确认';
+        item.lessonRoom =  item.lessonRoom || '待校区确认';
+      });
+      console.log('formate list', list);
+      return list;
+    }
+    return [];
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getUserBookList();
   },
 
   /**

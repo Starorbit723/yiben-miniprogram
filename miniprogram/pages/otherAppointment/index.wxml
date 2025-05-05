@@ -7,15 +7,15 @@
   <view class="form-ensure-content">
     <view class="input-text-box">
       <view class="label">家长姓名</view>
-      <view class="yb-input-text">雷军</view>
+      <view class="yb-input-text">{{ownerName}}</view>
     </view>
     <view class="input-text-box">
       <view class="label">联系方式</view>
-      <view class="yb-input-text">13012345678</view>
+      <view class="yb-input-text">{{ownerPhone}}</view>
     </view>
     <view class="input-text-box">
       <view class="label">当前参团</view>
-      <view class="yb-input-text">3人</view>
+      <view class="yb-input-text">{{nowMembersNum}}</view>
     </view>
     <view class="input-text-box">
       <view class="label">预约校区</view>
@@ -36,15 +36,15 @@
   <view class="form-content">
     <view class="input-box">
       <view class="label">家长姓名</view>
-      <input class="yb-input" value="{{form.parentName}}" maxlength="10" placeholder="我们尊重您的隐私, 比如您可以填：张先生/王女士 等" placeholder-style="color:#e09db3;font-size:18rpx;text-align:center;"></input>
+      <input class="yb-input" bindinput="memberNameInput" value="{{form.memberName}}" maxlength="10" placeholder="我们尊重您的隐私, 比如您可以填：张先生/王女士 等" placeholder-style="color:#e09db3;font-size:18rpx;text-align:center;"></input>
     </view>
     <view class="input-box">
       <view class="label">学生姓名</view>
-      <input class="yb-input" value="{{form.studentName}}" maxlength="10"></input>
+      <input class="yb-input" bindinput="memberChildrenInput" value="{{form.memberChildren}}" maxlength="10"></input>
     </view>
     <view class="input-box">
       <view class="label">联系方式</view>
-      <input class="yb-input" value="{{form.phoneNumber}}" type="number" maxlength="11" placeholder="请保持电话畅通，方便后续有老师联系您" placeholder-style="color:#e09db3;font-size:18rpx;text-align:center;"></input>
+      <input class="yb-input" bindinput="memberPhoneInput" value="{{form.memberPhone}}" type="number" maxlength="11" placeholder="请保持电话畅通，方便后续有老师联系您" placeholder-style="color:#e09db3;font-size:18rpx;text-align:center;"></input>
     </view>
   </view>
   <view class="ensure-btn">

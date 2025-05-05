@@ -1,4 +1,3 @@
-const { envList } = require("../../envList");
 const app = getApp();
 
 Page({
