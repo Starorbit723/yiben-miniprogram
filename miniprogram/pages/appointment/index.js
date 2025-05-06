@@ -105,7 +105,7 @@ Page({
       console.log('存入', app.globalData);
     }
     this.setData({
-      testConsole: `shareFrom:${options.shareFrom}  originInfo:${options.originInfo} prevInfo:${options.prevInfo}`
+      testConsole: `shareFrom:${options.shareFrom}  originYibenid:${options.originYibenid} prevYibenid:${options.prevYibenid}`
     });
   }
 });

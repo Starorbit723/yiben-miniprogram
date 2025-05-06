@@ -1,1 +1,10 @@
 /* pages/teachers/index.wxss */
+page {
+  background-color: #ec4b7d;
+}
+.container {
+  position: relative;
+  width: 100% - 80rpx;
+  padding: 40rpx 0;
+  font-family: '黑体';
+}
