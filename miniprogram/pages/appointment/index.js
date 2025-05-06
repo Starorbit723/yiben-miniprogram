@@ -92,6 +92,9 @@ Page({
     }
   },
   onLoad(options) {
+    wx.setNavigationBarTitle({
+      title: '预约试听'
+    });
     console.log('onLoad', options, app.globalData);
     if (options.shareFrom) {
       if (options.originYibenid && options.originOpenid) {

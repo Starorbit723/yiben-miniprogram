@@ -24,6 +24,11 @@ Page({
       userInfo: app.globalData.userInfo
     });
   },
+  onLoad(options) {
+    wx.setNavigationBarTitle({
+      title: '首页'
+    });
+  },
   gotoTestPage() {
     wx.navigateTo({
       url: `/pages/testPage/index`,

@@ -22,28 +22,40 @@ Page({
     }
   },
   gotoAccount() {
-    wx.navigateTo({
-      url: `/pages/account/index?envId=3`,
-    });
+    if (!app.globalData.userInfo.yibenid) {
+      wx.navigateTo({
+        url: `/pages/login/index`,
+      });
+    } else {
+      wx.navigateTo({
+        url: `/pages/account/index`,
+      });
+    }
   },
   gotoOrderList() {
-    wx.navigateTo({
-      url: `/pages/bookList/index?envId=3`,
-    });
+    if (!app.globalData.userInfo.yibenid) {
+      wx.navigateTo({
+        url: `/pages/login/index`,
+      });
+    } else {
+      wx.navigateTo({
+        url: `/pages/bookList/index`,
+      });
+    }
   },
   gotoAgreement() {
     wx.navigateTo({
-      url: `/pages/agreement/index?envId=3`,
+      url: `/pages/agreement/index`,
     });
   },
   gotoAboutUs() {
     wx.navigateTo({
-      url: `/pages/aboutUs/index?envId=3`,
+      url: `/pages/aboutUs/index`,
     });
   },
   gotoConnectUs() {
     wx.navigateTo({
-      url: `/pages/connectUs/index?envId=3`,
+      url: `/pages/connectUs/index`,
     });
   },
   getUserInfo(code) {
@@ -103,13 +115,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    wx.setNavigationBarTitle({
+      title: '个人中心'
+    });
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
       })
     }
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

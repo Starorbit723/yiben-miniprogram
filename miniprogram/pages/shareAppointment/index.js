@@ -22,6 +22,9 @@ Page({
     bookid: ''
   },
   onLoad(options) {
+    wx.setNavigationBarTitle({
+      title: '分享拼团预约'
+    });
     if (options.shareFrom === 'pyq') {
       wx.redirectTo({
         url: `/pages/otherAppointment/index?${this.toQueryString(options)}`

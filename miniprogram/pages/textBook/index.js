@@ -27,7 +27,7 @@ Page({
    */
   onShow() {
     wx.setNavigationBarTitle({
-      title: '课程介绍'
+      title: '教材介绍'
     })
   },
 

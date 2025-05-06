@@ -46,6 +46,9 @@ Page({
     requestLock: false,
   },
   onLoad(options) {
+    wx.setNavigationBarTitle({
+      title: '参与拼团预约'
+    });
     this.setData({
       shareFrom: options.shareFrom || '',
       bookid: options.bookid || '',

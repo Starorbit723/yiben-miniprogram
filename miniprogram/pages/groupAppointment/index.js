@@ -121,6 +121,11 @@ Page({
       });
     }
   },
+  onLoad(options) {
+    wx.setNavigationBarTitle({
+      title: '拼团预约'
+    });
+  },
   gotoShareAppointment() {
     wx.navigateTo({
       url: `/pages/shareAppointment/index?bookid=${this.data.bookid}`,

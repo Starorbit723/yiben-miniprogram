@@ -74,12 +74,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    wx.setNavigationBarTitle({
+      title: '登录'
+    });
     this.setData({
       canGoBack: options.canGoBack || 1,
     });
     console.log('canGoBack', this.data.canGoBack);
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

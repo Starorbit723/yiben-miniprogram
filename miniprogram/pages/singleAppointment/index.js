@@ -118,6 +118,11 @@ Page({
       });
     }
   },
+  onLoad(options) {
+    wx.setNavigationBarTitle({
+      title: '单人预约'
+    });
+  },
   ownerNameInput(e) {
     this.setData({
       [`form.ownerName`]: e.detail.value

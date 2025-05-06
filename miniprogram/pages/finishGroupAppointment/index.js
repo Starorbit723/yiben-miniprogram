@@ -19,4 +19,9 @@ Page({
       url: `/pages/bookList/index`,
     });
   },
+  onLoad(options) {
+    wx.setNavigationBarTitle({
+      title: '拼团成功'
+    });
+  },
 });
