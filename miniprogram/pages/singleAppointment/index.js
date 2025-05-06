@@ -1,4 +1,5 @@
 const app = getApp();
+const { validatePhoneNumber, validateUsername } = require("../../utils/common.js");
 
 Page({
   data: {
@@ -25,6 +26,34 @@ Page({
   submitSigleAppointment() {
     console.log('bookMain call', this.data.form);
     console.log('globalData', app.globalData);
+    // 验证
+    if (!validateUsername(this.data.form.ownerName)) {
+      wx.showToast({
+        title: '请确认预约人姓名是否有误',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return;
+    }
+    if (!validateUsername(this.data.form.ownerChildren)) {
+      wx.showToast({
+        title: '请确认学生姓名是否有误',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return;
+    }
+    if (!validatePhoneNumber(this.data.form.ownerPhone)) {
+      wx.showToast({
+        title: '请确认手机号是否有误',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return;
+    }
     if (!this.data.requestLock) {
       this.setData({
         requestLock: true
@@ -76,6 +105,12 @@ Page({
           });
         }
       }).catch(err => {
+        wx.showToast({
+          title: res.result.errMsg,
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        });
         this.setData({
           requestLock: false
         });

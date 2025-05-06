@@ -5,6 +5,6 @@
   <view class="step-zone">
     <yb-step stepList="{{stepList}}" currentStep="4"></yb-step>
   </view>
-  <yb-button class="share-btn" bindtap="gotoUsercenter" btnText="查看我的订单" width="600" height="80" fontSize="34" fontWeight="700"></yb-button>
+  <yb-button class="share-btn" bindtap="gotoBookList" btnText="查看我的订单" width="600" height="80" fontSize="34" fontWeight="700"></yb-button>
   <image class="bg-img" src="../../images/bg_yiben_logo.png"></image>
 </view>

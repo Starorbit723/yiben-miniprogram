@@ -14,7 +14,7 @@ Page({
       text2: '享受优惠'
     }] 
   },
-  gotoUsercenter() {
+  gotoBookList() {
     wx.redirectTo({
       url: `/pages/bookList/index`,
     });

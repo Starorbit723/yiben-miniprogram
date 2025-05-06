@@ -50,6 +50,4 @@
   <view class="ensure-btn">
     <yb-button bindtap="ensureJoinIn" btnText="确认参与拼团" width="450" height="80" fontSize="34" fontWeight="700"></yb-button>
   </view>
-  <!--调试工具-->
-  <yb-tester text="{{testConsole}}"></yb-tester>
 </view>

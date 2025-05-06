@@ -1,4 +1,5 @@
 const app = getApp();
+const { validatePhoneNumber, validateUsername } = require("../../utils/common.js");
 
 Page({
   data: {
@@ -52,9 +53,6 @@ Page({
     });
     console.log('bookid', this.data.bookid);
     this.getMainOrderInfo();
-    this.setData({
-      testConsole: `shareFrom:${options.shareFrom}  bookid:${this.data.bookid}`
-    });
   },
   getMainOrderInfo() {
     console.log('getMainOrderInfo call');
@@ -93,8 +91,37 @@ Page({
       wx.navigateTo({
         url: `/pages/login/index`,
       });
+      return;
     }
     console.log('globalData', app.globalData);
+    // 验证
+    if (!validateUsername(this.data.form.memberName)) {
+      wx.showToast({
+        title: '请确认参团人姓名是否有误',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return;
+    }
+    if (!validateUsername(this.data.form.memberChildren)) {
+      wx.showToast({
+        title: '请确认学生姓名是否有误',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return;
+    }
+    if (!validatePhoneNumber(this.data.form.memberPhone)) {
+      wx.showToast({
+        title: '请确认手机号是否有误',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      return;
+    }
     if (!this.data.requestLock) {
       this.setData({
         requestLock: true
