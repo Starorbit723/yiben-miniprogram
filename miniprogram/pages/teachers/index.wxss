@@ -4,7 +4,108 @@ page {
 }
 .container {
   position: relative;
-  width: 100% - 80rpx;
-  padding: 40rpx 0;
+  width: 100% - 40rpx;
+  padding: 20rpx;
   font-family: '黑体';
+}
+.teacher-item{
+  position: relative;
+  height: 600rpx;
+  margin-bottom: 30rpx;
+  background-color: #FFF;
+  border-radius: 30rpx 0 30rpx 0;
+  padding: 30rpx 30rpx 0 30rpx;
+  overflow: hidden;
+  border-radius: 5rpx 5rpx 5rpx rgba(0,0,0,1);
+}
+.teacher-item.direct-right{
+  border-radius: 0 30rpx 0 30rpx;
+}
+.teacher-item3{
+  position: relative;
+  height: 500rpx;
+  margin-bottom: 30rpx;
+  background-color: #FFF;
+  border-radius: 30rpx 0 30rpx 0;
+  padding: 30rpx 30rpx 0 30rpx;
+  overflow: hidden;
+  border-radius: 5rpx 5rpx 5rpx rgba(0,0,0,1);
+}
+.teacher-name{
+  height: 50rpx;
+  line-height: 52rpx;
+  border-left: 10rpx solid #ec4b7d;
+  color: #ec4b7d;
+  font-size: 36rpx;
+  font-weight: 600;
+  text-indent: 20rpx;
+}
+.teacher-title{
+  text-align: right;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  text-indent: 30rpx;
+  font-weight: 600;
+}
+.headpic{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 272rpx;
+  height: 336rpx;
+}
+.headpic2{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 272rpx;
+  height: 336rpx;
+}
+.xueli{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.xueli2{
+  position: absolute;
+  top: 170rpx;
+  right: 30rpx;
+  text-align: right;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.subtitile{
+  margin-left: 280rpx;
+  margin-top: 15rpx;
+  margin-bottom: 5rpx;
+  height: 36rpx;
+  font-size: 28rpx;
+  color: #ec4b7d;
+  font-weight: 700;
+}
+.subtitile2{
+  margin-top: 15rpx;
+  margin-bottom: 5rpx;
+  height: 36rpx;
+  font-size: 28rpx;
+  color: #ec4b7d;
+  font-weight: 700;
+}
+.text{
+  margin-left: 280rpx;
+  font-size: 28rpx;
+  line-height: 36rpx;
+}
+.text2{
+  width: 420rpx;
+  font-size: 28rpx;
+  line-height: 36rpx;
+}
+.foucs{
+  color: #ec4b7d;
+  font-weight: 700;
 }

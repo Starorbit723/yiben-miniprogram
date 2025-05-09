@@ -45,5 +45,5 @@
     </view>
   </view>
   <!--调试工具-->
-  <yb-tester text="{{testConsole}}"></yb-tester>
+  <!-- <yb-tester text="{{testConsole}}"></yb-tester> -->
 </view>

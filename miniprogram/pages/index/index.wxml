@@ -5,7 +5,7 @@
     <swiper class="swiper-box" indicatorDots="true" circular="true" interval="{{interval}}" duration="{{duration}}" autoplay="true" indicator-type="expand" indicator-color="#FFF" indicator-active-color="#ec4b7d">
         <block wx:for="{{advList}}" wx:key="{{index}}">
           <swiper-item>
-            <view class="swiper-item" bindtap="gotoTestPage">
+            <view class="swiper-item">
               <image class="swiper-img" src="{{item.imgurl}}"></image>
             </view>
           </swiper-item>
@@ -53,7 +53,7 @@
   <!--activity-->
   <view class="activity-content">
     <view class="act-title">热门活动</view>
-    <view class="act-item" wx:for="{{activityList}}" wx:key="{{index}}">
+    <view class="act-item" wx:for="{{activityList}}" wx:key="{{index}}" bind:tap="goToConnectUs">
       <image class="act-img" src="{{item.imgurl}}"></image>
     </view>
   </view>

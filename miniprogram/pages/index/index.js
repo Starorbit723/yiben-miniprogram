@@ -50,13 +50,21 @@ Page({
     });
   },
   goToSchool() {
+    // wx.navigateTo({
+    //   url: `/pages/school/index`,
+    // });
     wx.navigateTo({
-      url: `/pages/school/index`,
+      url: `/pages/aboutUs/index`,
     });
   },
   goToTextBook() {
     wx.navigateTo({
       url: `/pages/textBook/index`,
+    });
+  },
+  goToConnectUs() {
+    wx.navigateTo({
+      url: `/pages/connectUs/index`,
     });
   },
 });

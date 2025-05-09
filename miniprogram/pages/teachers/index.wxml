@@ -1,4 +1,47 @@
 <!--pages/teachers/index.wxml-->
 <view class="container">
-  
+  <view class="teacher-item">
+    <view class="teacher-name">Tracy 岳老师</view>
+    <view class="teacher-title">—— 剑桥英语体系 明星老师</view>
+    <image class="headpic" src="../../images/teacher1.png"></image>
+    <view class="xueli"><text>香港浸会大学硕士\n全国三级心里咨询\n师资质</text></view>
+    <view class="subtitile">【过往经验】</view>
+    <view class="text">一线教育经验<text class="foucs">超过8年</text></view>
+    <view class="text">曾受聘于新东方前途出国美国<text class="foucs">硕博部</text></view>
+    <view class="text">曾获新东方<text class="foucs">“优秀教室称号”</text></view>
+    <view class="text">现任希望之星英语大赛决赛选手导师</view>
+    <view class="text">著名国际学校 考生前测英语辅导教师</view>
+    <view class="subtitile">【教学成果】</view>
+    <view class="text">培养少儿通用幼升小及自考<text class="foucs">100%</text>进入北京<text class="foucs">排名前十小学</text></view>
+  </view>
+  <view class="teacher-item direct-right">
+    <view class="teacher-name">Aurora 吴老师</view>
+    <view class="teacher-title">—— 剑桥英语体系 明星老师</view>
+    <image class="headpic2" src="../../images/teacher2.png"></image>
+    <view class="xueli2"><text>科班英语专业\n专业八级</text></view>
+    <view class="subtitile2">【过往经历】</view>
+    <view class="text2"><text>美国休斯顿工作经验\n多年学而思工作经验</text></view>
+    <view class="subtitile2">【擅长教学】</view>
+    <view class="text2">多次参与学而思课程<text class="foucs">研发及升级</text></view>
+    <view class="text2">钻研幼儿及小学阶段各类教学方式</view>
+    <view class="text2">熟悉<text class="foucs">儿童心理学</text> 擅长激发儿童英语学习兴趣</view>
+    <view class="subtitile2">【教学成果】</view>
+    <view class="text2">曾经带出多届希望之星演讲比赛<text class="foucs">全国前十</text></view>
+    <view class="text2">培养过多届各学校的英语校内第一名\n所带学生<text class="foucs">KET表现卓越</text></view>
+  </view>
+  <view class="teacher-item3">
+    <view class="teacher-name">Cassie 郭老师</view>
+    <view class="teacher-title">—— 剑桥英语体系 明星老师</view>
+    <image class="headpic" src="../../images/teacher3.png"></image>
+    <view class="xueli">壹本教育创始人</view>
+    <view class="subtitile">【过往经历】</view>
+    <view class="text">英国伦敦大学本科</view>
+    <view class="text">英国华威大学研究生</view>
+    <view class="text">雅思7.5分 <text class="foucs">中科院心里咨询师</text></view>
+    <view class="text">TESOL国际英语教师资格认证</view>
+    <view class="subtitile">【教学经验】</view>
+    <view class="text"><text class="foucs">12年</text>中小学一线教学经验</view>
+    <view class="text">曾任职于学而思国际语言中心</view>
+    <view class="text">李阳疯狂英语北京师训部长</view>
+  </view>
 </view>

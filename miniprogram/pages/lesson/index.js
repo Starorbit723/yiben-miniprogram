@@ -10,35 +10,35 @@ Page({
         title: "星期六",
         isWorkDay: 1,
         teachers: [{
-          name:"Tracy",
+          name:"Tom",
           schedule:[
             {
               endTime:"10:00",
               heightRate:120,
-              lesson:"XXXXXXXXXXXXXXXXX",
+              lesson:"课程名称课程名称",
               posTop:0,
               room:"第5教室",
               startTime:"08:00"
             },
             {
-              endTime: "12:00",
-              heightRate: 60,
-              lesson: "123123123213213123312313",
+              endTime: "13:00",
+              heightRate: 120,
+              lesson: "课程名称课程名称",
               posTop: 180,
               room: "第2教室",
               startTime: "11:00"
             },
             {
-              endTime:"15:40",
-              heightRate:160,
-              lesson:"231312312312312321123123",
-              posTop:300,
+              endTime:"18:30",
+              heightRate:120,
+              lesson:"课程名称课程名称",
+              posTop:510,
               room:"第5教室",
-              startTime:"13:00"
+              startTime:"16:30"
             }
           ]
         },{
-          name:"Tracy1",
+          name:"Jerry",
           schedule:[
             {
               endTime:"10:00",
@@ -50,7 +50,7 @@ Page({
             }
           ]
         },{
-          name:"Tracy2",
+          name:"Jack",
           schedule:[
             {
               endTime:"10:00",
