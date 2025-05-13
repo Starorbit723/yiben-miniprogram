@@ -8,5 +8,5 @@
   <button class="share-btn" open-type="share">点击此处分享</button>
   <image class="bg-img" src="../../images/bg_yiben_logo.png"></image>
   <!--调试工具-->
-  <yb-tester text="{{testConsole}}"></yb-tester>
+  <!-- <yb-tester text="{{testConsole}}"></yb-tester> -->
 </view>

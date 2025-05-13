@@ -5,7 +5,7 @@
     <swiper class="swiper-box" indicatorDots="true" circular="true" interval="{{interval}}" duration="{{duration}}" autoplay="true" indicator-type="expand" indicator-color="#FFF" indicator-active-color="#ec4b7d">
         <block wx:for="{{advList}}" wx:key="{{index}}">
           <swiper-item>
-            <view class="swiper-item">
+            <view class="swiper-item" bind:tap="goToConnectUs">
               <image class="swiper-img" src="{{item.imgurl}}"></image>
             </view>
           </swiper-item>

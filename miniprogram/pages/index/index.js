@@ -2,13 +2,14 @@ const app = getApp();
 
 Page({
   data: {
+    schoolid: 1,
+    interval: 4000,
+    duration: 500,
     advList: [
       { id: 1, imgurl: '../../images/swiper/swiper_adv1.png'}, 
       { id: 2, imgurl: '../../images/swiper/swiper_adv1.png'},
       { id: 3, imgurl: '../../images/swiper/swiper_adv1.png'}
     ],
-    interval: 4000,
-    duration: 500,
     activityList: [
       { id: 1, imgurl: '../../images/swiper/swiper_adv1.png'}, 
       { id: 2, imgurl: '../../images/swiper/swiper_adv1.png'},
@@ -27,6 +28,41 @@ Page({
   onLoad(options) {
     wx.setNavigationBarTitle({
       title: '首页'
+    });
+    this.getAllData();
+  },
+  getAllData() {
+    wx.cloud.callFunction({
+      name: 'operations',
+      data: {
+        type: 'schoolRead',
+        data: {
+          schoolid: this.data.schoolid,
+        },
+      }
+    }).then(res => {
+      console.log('schoolRead result:', res);
+      if (res.result.success) {
+        this.setData({
+          advList: res.result.data[0].detail.swiperData,
+          activityList: res.result.data[0].detail.activityData,
+        });
+      } else {
+        wx.showToast({
+          title: '网络异常，请稍后再试',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        });
+      }
+    }).catch(err => {
+      wx.showToast({
+        title: '网络异常，请稍后再试',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      console.error('bookMain error:', err);
     });
   },
   gotoTestPage() {

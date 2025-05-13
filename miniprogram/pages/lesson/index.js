@@ -5,72 +5,50 @@ Page({
    */
   data: {
     titleColorStep: ['rgb(50, 151, 253)', 'rgb(8, 190, 166)', 'rgb(233, 120, 15)', 'rgb(160, 23, 240)', 'rgb(23, 240, 77)'],
+    schoolid: 1,
     timetable:[
-      {
-        title: "星期六",
-        isWorkDay: 1,
-        teachers: [{
-          name:"Tom",
-          schedule:[
-            {
-              endTime:"10:00",
-              heightRate:120,
-              lesson:"课程名称课程名称",
-              posTop:0,
-              room:"第5教室",
-              startTime:"08:00"
-            },
-            {
-              endTime: "13:00",
-              heightRate: 120,
-              lesson: "课程名称课程名称",
-              posTop: 180,
-              room: "第2教室",
-              startTime: "11:00"
-            },
-            {
-              endTime:"18:30",
-              heightRate:120,
-              lesson:"课程名称课程名称",
-              posTop:510,
-              room:"第5教室",
-              startTime:"16:30"
-            }
-          ]
-        },{
-          name:"Jerry",
-          schedule:[
-            {
-              endTime:"10:00",
-              heightRate:120,
-              lesson:"XXXXXXXXXXXXXXXXX",
-              posTop:0,
-              room:"第5教室",
-              startTime:"08:00"
-            }
-          ]
-        },{
-          name:"Jack",
-          schedule:[
-            {
-              endTime:"10:00",
-              heightRate:120,
-              lesson:"XXXXXXXXXXXXXXXXX",
-              posTop:0,
-              room:"第5教室",
-              startTime:"08:00"
-            }
-          ]
-        }],
-      },{"isWorkDay":1,"teachers":[],"title":"星期日"},
-      {"isWorkDay":2,"teachers":[],"title":"星期一"},
-      {"isWorkDay":1,"teachers":[],"title":"星期二"},
-      {"isWorkDay":1,"teachers":[],"title":"星期三"},
-      {"isWorkDay":1,"teachers":[],"title":"星期四"},
-      {"isWorkDay":1,"teachers":[],"title":"星期五"}
+      {isWorkDay: 1,teachers:[],title: "星期六"},
+      {isWorkDay: 1,teachers:[],title:"星期日"},
+      {isWorkDay: 2,teachers:[],title:"星期一"},
+      {isWorkDay: 1,teachers:[],title:"星期二"},
+      {isWorkDay: 1,teachers:[],title:"星期三"},
+      {isWorkDay: 1,teachers:[],title:"星期四"},
+      {isWorkDay: 1,teachers:[],title:"星期五"}
     ]
   },
-
+  getLessonData() {
+    wx.cloud.callFunction({
+      name: 'operations',
+      data: {
+        type: 'schoolRead',
+        data: {
+          schoolid: this.data.schoolid,
+        },
+      }
+    }).then(res => {
+      console.log('schoolRead result:', res);
+      if (res.result.success) {
+        this.setData({
+          timetable: res.result.data[0].detail.timetableConfig
+        });
+      } else {
+        wx.showToast({
+          title: '网络异常，请稍后再试',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        });
+      }
+    }).catch(err => {
+      wx.showToast({
+        title: '网络异常，请稍后再试',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      console.error('bookMain error:', err);
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -78,6 +56,7 @@ Page({
     wx.setNavigationBarTitle({
       title: '课程介绍'
     });
+    this.getLessonData();
   },
 
   /**

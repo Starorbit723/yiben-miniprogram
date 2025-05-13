@@ -19,7 +19,8 @@ Page({
       nickName: "",
       age: "",
       point: "",
-    }
+    },
+    lastUpdate: ''
   },
   gotoAccount() {
     if (!app.globalData.userInfo.yibenid) {
@@ -84,7 +85,15 @@ Page({
         app.globalData.userInfo.country = res.userInfo.country;
         app.globalData.userInfo.province = res.userInfo.province;
         console.log('getUserProfile', this.data.userInfo);
-        this.updateUserWxInfo();
+        // 如果已经登录了，做资料完善，否增去登录
+        if (app.globalData.userInfo.yibenid && ((new Date().getTime() + 86400000) > this.data.lastUpdate)) {
+          console.log('need update');
+          this.updateUserWxInfo();
+        } else {
+          wx.navigateTo({
+            url: `/pages/login/index`,
+          });
+        }
       }
     })
   },
@@ -107,6 +116,10 @@ Page({
       }
     }).then(res => {
       console.log('userInfoAuto result:', res);
+      this.setData({
+        lastUpdate: new Date().getTime(),
+      });
+      console.log('lastUpdate', this.data.lastUpdate);
     }).catch(err => {
       console.error('userInfoAuto error:', err)
     });
