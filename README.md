@@ -93,3 +93,12 @@
 3. createTime 上传时间
 4. type 资源类型 1 图片 2 视频
 5. name 资源名称
+
+# 问卷配置
+字段
+1. questionaireid 问卷id string
+2. schoolid 校区id string
+3. questionConfig 问题配置 json
+4. createTime 创建时间 datetime
+5. desc 描述 string
+6. title 标题 string
