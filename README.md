@@ -111,3 +111,13 @@
 4. questionAnswer 问题+答案 json
 5. createTime 创建时间 datetime
 6. questionaireid 问卷id string
+
+# 角色配置(role_config)
+字段
+1. roleConfigid 角色配置id string
+2. yibenid yibenid string
+3. name		姓名 string
+4. phoneNumber 手机号 string
+5. roleList	角色列表 数组 string
+6. createTime 创建时间 日期时间
+7. updateTime 更新时间 日期时间
