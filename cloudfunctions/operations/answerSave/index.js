@@ -12,7 +12,7 @@ exports.main = async (params, db) => {
   const { answerid, schoolid, yibenid, questionAnswer, questionaireid } = params;
 
   // 检查必要参数
-  if (!schoolid || !yibenid || !questionAnswer || !questionaireid) {
+  if (schoolid === undefined || schoolid === null || !yibenid || !questionAnswer || !questionaireid) {
     return {
       success: false,
       errMsg: '缺少必要参数：schoolid, yibenid, questionAnswer, questionaireid'
@@ -44,7 +44,8 @@ exports.main = async (params, db) => {
       if (existingAnswer.data.length > 0) {
         // 更新现有答案，保留原始创建时间
         answerData.createTime = existingAnswer.data[0].createTime;
-        // 更新现有答案，保留原始创建时间
+        // The user has specified that only questionAnswer should be updated.
+        // schoolid from the original record will be maintained.
         const updateData = {
             questionAnswer: answerData.questionAnswer,
         };

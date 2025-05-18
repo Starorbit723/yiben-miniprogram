@@ -11,7 +11,7 @@ exports.main = async (params, db) => {
   const { questionnaireid, schoolid, questionConfig, desc, title } = params;
 
   // 检查必要参数
-  if (!schoolid || !questionConfig || !title) {
+  if (schoolid === undefined || schoolid === null || !questionConfig || !title) {
     return {
       success: false,
       errMsg: '缺少必要参数：schoolid, questionConfig, title'
