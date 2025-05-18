@@ -22,6 +22,9 @@ const resourceDelete = require('./resourceDelete/index');
 const questionnaireSave = require('./questionnaireSave/index');
 const questionnaireOneInfo = require('./questionnaireOneInfo/index');
 const questionnaireManagePage = require('./questionnaireManagePage/index');
+const answerManagePage = require('./answerManagePage/index');
+const answerOneInfo = require('./answerOneInfo/index');
+const answerSave = require('./answerSave/index');
 
 cloud.init({
   env: "cloud1-0gvvdaq4c40b8f74"
@@ -33,7 +36,7 @@ const db = cloud.database();
 exports.main = async (event, context) => {
   try {
     // 参数基础校验
-    if (!event.type || !['schoolRead', 'schoolSave', 'schoolList', 'userLogin', 'userInfoAuto', 'userInfoMan', 'userInfoModify', 'bookMain', 'bookGroup', 'bookOneInfo', 'bookOfUser', 'bookModify', 'userManagePage', 'userOneInfo', 'bookManagePage', 'resourceSave', 'resourceManagePage', 'resourceDelete', 'questionnaireSave', 'questionnaireOneInfo', 'questionnaireManagePage'].includes(event.type)) {
+    if (!event.type || !['schoolRead', 'schoolSave', 'schoolList', 'userLogin', 'userInfoAuto', 'userInfoMan', 'userInfoModify', 'bookMain', 'bookGroup', 'bookOneInfo', 'bookOfUser', 'bookModify', 'userManagePage', 'userOneInfo', 'bookManagePage', 'resourceSave', 'resourceManagePage', 'resourceDelete', 'questionnaireSave', 'questionnaireOneInfo', 'questionnaireManagePage', 'answerManagePage', 'answerOneInfo', 'answerSave'].includes(event.type)) {
       return { code: 400, message: '无效的操作类型' };
     }
 
@@ -81,6 +84,12 @@ exports.main = async (event, context) => {
         return await questionnaireOneInfo.main(event.data, db);
       case 'questionnaireManagePage':
         return await questionnaireManagePage.main(event.data, db);
+      case 'answerManagePage':
+        return await answerManagePage.main(event.data, db);
+      case 'answerOneInfo':
+        return await answerOneInfo.main(event.data, db);
+      case 'answerSave':
+        return await answerSave.main(event.data, db);
       default:
         return { code: 400, message: '未实现的操作类型' };
     }

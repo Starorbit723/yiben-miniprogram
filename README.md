@@ -102,3 +102,12 @@
 4. createTime 创建时间 datetime
 5. desc 描述 string
 6. title 标题 string
+
+# 答案
+字段
+1. answerid 答案id
+2. schoolid 校区id
+3. yibenid yibenid
+4. questionAnswer 问题+答案 json
+5. createTime 创建时间 datetime
+6. questionaireid 问卷id string
