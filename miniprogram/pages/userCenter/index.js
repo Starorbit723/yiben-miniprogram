@@ -44,6 +44,17 @@ Page({
       });
     }
   },
+  gotoQuestionnaire() {
+    if (!app.globalData.userInfo.yibenid) {
+      wx.navigateTo({
+        url: `/pages/login/index`,
+      });
+    } else {
+      wx.navigateTo({
+        url: `/pages/questionnaire/index`,
+      });
+    }
+  },
   gotoAgreement() {
     wx.navigateTo({
       url: `/pages/agreement/index`,

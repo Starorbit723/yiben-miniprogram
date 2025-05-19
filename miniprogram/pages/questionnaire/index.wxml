@@ -1,0 +1,34 @@
+<!--pages/lesson/index.wxml-->
+<view class="container">
+  <view class="pagetitle"><text>感谢您的参与\n您的宝贵意见 是我们进步的源动力</text></view>
+  <view class="question-list">
+    <view class="question-item" wx:for="{{questionList}}" wx:key="{{title}}">
+      <view class="q-title">{{index + 1}}.{{item.title}}</view>
+      <!--单选-->
+      <view class="radio-type" wx:if="{{item.type === 'radio-group'}}">
+        <radio-group bindchange="radioChange" data-index="{{index}}"> 
+          <view class="radio-item" wx:for="{{item.answer}}" wx:key="{{item.answer.id}}">
+            <radio value="{{item.id}}" />
+            <text>{{item.name}}</text>
+          </view>
+        </radio-group>
+      </view>
+      <!--多选-->
+      <view class="checkbox-type" wx:if="{{item.type === 'checkbox-group'}}">
+        <checkbox-group bindchange="checkboxChange" data-index="{{index}}">
+          <view class="checkbox-item" wx:for="{{item.answer}}" wx:key="{{item.answer.id}}">
+            <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+            <text>{{item.name}}</text>
+          </view>
+        </checkbox-group>
+      </view>
+      <!--主观-->
+      <view class="textarea-type" wx:if="{{item.type === 'textarea'}}">
+        <textarea bindinput="textAreaInput" data-index="{{index}}" placeholder="" maxlength="100"></textarea>
+      </view>
+    </view>
+  </view>
+  <view class="submit-btn">
+    <yb-button bindtap="submitQuestionnaire" btnText="确认提交问卷" width="450" height="80" fontSize="34" fontWeight="700"></yb-button>
+  </view>
+</view>

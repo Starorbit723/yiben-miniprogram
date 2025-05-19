@@ -18,7 +18,8 @@
     "pages/teachers/index",
     "pages/lesson/index",
     "pages/school/index",
-    "pages/textBook/index"
+    "pages/textBook/index",
+    "pages/questionnaire/index"
   ],
   "shareAppMessage": true,
   "shareTimeline": true,

@@ -46,6 +46,10 @@
     <view>联系我们</view>
     <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
   </view>
+  <view class="enter-label" style="margin-top: 20rpx;" bindtap="gotoQuestionnaire">
+    <view>意见与反馈</view>
+    <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
+  </view>
   <view class="enter-label" style="margin-top: 20rpx;" bindtap="gotoAgreement">
     <view>用户协议及隐私政策</view>
     <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>

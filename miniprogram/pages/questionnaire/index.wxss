@@ -1,0 +1,56 @@
+/* pages/lesson/index.wxss */
+page {
+  background-color: #ec4b7d;
+}
+.container {
+  position: relative;
+  width: 100% - 40rpx;
+  padding: 40rpx 20rpx;
+  font-family: '黑体';
+}
+.pagetitle{
+  text-align: center;
+  color: #FFF;
+  font-size: 28rpx;
+  line-height: 44rpx;
+}
+.question-list{
+  margin-top: 50rpx;
+}
+.question-item{
+  margin-bottom: 40rpx;
+  font-size: 30rpx;
+  color: #FFF;
+}
+.q-title{
+  line-height: 40rpx;
+  font-weight: 700;
+  margin-bottom: 10rpx;
+}
+.radio-type{
+  padding: 15rpx 0;
+}
+.radio-item{
+  padding: 8rpx 0;
+}
+.radio-item text{
+  line-height: 40rpx;
+}
+.checkbox-item{
+  padding: 10rpx 0;
+}
+.checkbox-item text{
+  line-height: 40rpx;
+}
+.textarea-type textarea{
+  width: 90%;
+  margin-top: 20rpx;
+  border: 1rpx solid #FFF;
+  font-size: 32rpx;
+  padding: 20rpx;
+  line-height: 46rpx;
+}
+.submit-btn {
+  margin-top: 80rpx;
+}
+
