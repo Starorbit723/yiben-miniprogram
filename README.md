@@ -96,7 +96,7 @@
 
 # 问卷配置
 字段
-1. questionaireid 问卷id string
+1. questionnaireid 问卷id string
 2. schoolid 校区id 数字
 3. questionConfig 问题配置 json
 4. createTime 创建时间 datetime
@@ -110,7 +110,7 @@
 3. yibenid yibenid
 4. questionAnswer 问题+答案 json
 5. createTime 创建时间 datetime
-6. questionaireid 问卷id string
+6. questionnaireid 问卷id string
 
 # 角色配置(role_config)
 字段

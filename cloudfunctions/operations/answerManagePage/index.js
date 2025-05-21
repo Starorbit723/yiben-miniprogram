@@ -11,8 +11,8 @@ exports.main = async (params, db) => {
   // 提取分页参数和查询条件
   const pageNo = params.pageNo || 1;
   const pageSize = params.pageSize || 10;
-  // Potential filter fields for answers: schoolid, yibenid, answerid, questionaireid
-  const { schoolid, yibenid, answerid, questionaireid } = params;
+  // Potential filter fields for answers: schoolid, yibenid, answerid, questionnaireid
+  const { schoolid, yibenid, answerid, questionnaireid } = params;
 
   // 计算分页偏移量
   const skip = (pageNo - 1) * pageSize;
@@ -36,8 +36,8 @@ exports.main = async (params, db) => {
       whereCondition.answerid = answerid;
     }
 
-    if (questionaireid) {
-      whereCondition.questionaireid = questionaireid;
+    if (questionnaireid) {
+      whereCondition.questionnaireid = questionnaireid;
     }
     
     // 查询总记录数

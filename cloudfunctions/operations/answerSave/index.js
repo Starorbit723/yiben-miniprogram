@@ -8,14 +8,14 @@ exports.main = async (params, db) => {
     };
   }
 
-  // Fields for answer: answerid, schoolid, yibenid, questionAnswer (json), createTime (datetime), questionaireid
-  const { answerid, schoolid, yibenid, questionAnswer, questionaireid } = params;
+  // Fields for answer: answerid, schoolid, yibenid, questionAnswer (json), createTime (datetime), questionnaireid
+  const { answerid, schoolid, yibenid, questionAnswer, questionnaireid } = params;
 
   // 检查必要参数
-  if (schoolid === undefined || schoolid === null || !yibenid || !questionAnswer || !questionaireid) {
+  if (schoolid === undefined || schoolid === null || !yibenid || !questionAnswer || !questionnaireid) {
     return {
       success: false,
-      errMsg: '缺少必要参数：schoolid, yibenid, questionAnswer, questionaireid'
+      errMsg: '缺少必要参数：schoolid, yibenid, questionAnswer, questionnaireid'
     };
   }
 
@@ -27,8 +27,8 @@ exports.main = async (params, db) => {
     schoolid,
     yibenid,
     questionAnswer,
-    questionaireid,
-    createTime
+    createTime: new Date(),
+    questionnaireid,
   };
 
   try {

@@ -101,24 +101,21 @@ Page({
     wx.cloud.callFunction({
       name: 'operations',
       data: {
-        type: 'bookManagePage',
+        type: 'answerSave',
         data: {
-          pageNo: 1,
-          pageSize: 2,
-          condition: {
-            bookid: "FuTjiaLvkkBRDX8lDkNrMx8ZLazWoYvc",
-            bookType: 2,
-            schoolid: 1,
-            bookTimeRanger: ["2025-01-01", "2025-01-02"]
-          }
+          "answerid": "123",
+          "schoolid": "1",
+          "yibenid": "123",
+          "questionAnswer": "123",
+          "questionaireid": "123"
         }
       }
     }).then(res => {
-      console.log('bookManagePage result:', res)
+      console.log('answerSave result:', res)
     }).catch(err => {
-      console.error('bookManagePage error:', err)
+      console.error('answerSave error:', err)
     })
-    console.log('bookManagePage start');
+    console.log('answerSave start');
   },
   
   /**
