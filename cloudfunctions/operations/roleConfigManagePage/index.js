@@ -35,11 +35,8 @@ exports.main = async (params, db) => {
       });
     }
     if (phoneNumber) {
-      // 模糊匹配 phoneNumber
-      whereCondition.phoneNumber = db.RegExp({
-        regexp: phoneNumber,
-        options: 'i' // i 表示不区分大小写
-      });
+      // 精确匹配 phoneNumber
+      whereCondition.phoneNumber = phoneNumber;
     }
     
     // 查询总记录数
