@@ -11,10 +11,10 @@ exports.main = async (params, db) => {
   const { roleConfigid, yibenid, name, phoneNumber, roleList } = params;
 
   // 检查必要参数
-  if (!yibenid || !name || !phoneNumber || !roleList || !Array.isArray(roleList)) {
+  if (!name || !phoneNumber || !roleList || !Array.isArray(roleList)) {
     return {
       success: false,
-      errMsg: '缺少必要参数或格式不正确：yibenid, name, phoneNumber, roleList (must be an array)'
+      errMsg: '缺少必要参数或格式不正确：name, phoneNumber, roleList (must be an array)'
     };
   }
 
