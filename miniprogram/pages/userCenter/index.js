@@ -20,7 +20,8 @@ Page({
       age: "",
       point: "",
     },
-    lastUpdate: ''
+    lastUpdate: '',
+    questionnaireid: ''
   },
   gotoAccount() {
     if (!app.globalData.userInfo.yibenid) {
@@ -51,7 +52,7 @@ Page({
       });
     } else {
       wx.navigateTo({
-        url: `/pages/questionnaire/index`,
+        url: `/pages/questionnaire/index?questionnaireid=${this.data.questionnaireid}`,
       });
     }
   },
@@ -135,6 +136,39 @@ Page({
       console.error('userInfoAuto error:', err)
     });
   },
+  getAllData() {
+    wx.cloud.callFunction({
+      name: 'operations',
+      data: {
+        type: 'schoolRead',
+        data: {
+          schoolid: this.data.schoolid,
+        },
+      }
+    }).then(res => {
+      console.log('schoolRead result:', res);
+      if (res.result.success) {
+        this.setData({
+          questionnaireid: res.result.data[0].detail.questionnaireid,
+        });
+      } else {
+        wx.showToast({
+          title: '网络异常，请稍后再试',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        });
+      }
+    }).catch(err => {
+      wx.showToast({
+        title: '网络异常，请稍后再试',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      });
+      console.error('schoolRead error:', err);
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -147,6 +181,7 @@ Page({
         canIUseGetUserProfile: true
       })
     }
+    this.getAllData();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

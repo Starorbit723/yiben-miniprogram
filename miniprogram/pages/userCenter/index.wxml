@@ -46,7 +46,7 @@
     <view>联系我们</view>
     <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
   </view>
-  <view class="enter-label" style="margin-top: 20rpx;" bindtap="gotoQuestionnaire">
+  <view class="enter-label" wx:if="{{questionnaireid}}" style="margin-top: 20rpx;" bindtap="gotoQuestionnaire">
     <view>意见与反馈</view>
     <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
   </view>

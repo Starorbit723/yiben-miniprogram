@@ -5,15 +5,8 @@ Page({
     schoolid: 1,
     interval: 4000,
     duration: 500,
-    advList: [
-      { id: 1, imgurl: '../../images/swiper/swiper_adv1.png'}, 
-      { id: 2, imgurl: '../../images/swiper/swiper_adv1.png'},
-      { id: 3, imgurl: '../../images/swiper/swiper_adv1.png'}
-    ],
-    activityList: [
-      { id: 1, imgurl: '../../images/swiper/swiper_adv1.png'}, 
-      { id: 2, imgurl: '../../images/swiper/swiper_adv1.png'},
-    ],
+    advList: [],
+    activityList: [],
     userInfo: {}, // 随时同步globalData里的数据
   },
   
