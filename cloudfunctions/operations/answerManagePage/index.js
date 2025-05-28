@@ -12,7 +12,8 @@ exports.main = async (params, db) => {
   const pageNo = params.pageNo || 1;
   const pageSize = params.pageSize || 10;
   // Potential filter fields for answers: schoolid, yibenid, answerid, questionnaireid
-  const { schoolid, yibenid, answerid, questionnaireid } = params;
+  const condition = params.condition || {};
+  const { schoolid, yibenid, answerid, questionnaireid } = condition;
 
   // 计算分页偏移量
   const skip = (pageNo - 1) * pageSize;

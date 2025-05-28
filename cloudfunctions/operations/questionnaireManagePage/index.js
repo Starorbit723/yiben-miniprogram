@@ -11,7 +11,8 @@ exports.main = async (params, db) => {
   // 提取分页参数和查询条件
   const pageNo = params.pageNo || 1;
   const pageSize = params.pageSize || 10;
-  const { schoolid, questionnaireid, title, desc } = params;
+  const condition = params.condition || {};
+  const { schoolid, questionnaireid, title, desc } = condition;
 
   // 计算分页偏移量
   const skip = (pageNo - 1) * pageSize;
