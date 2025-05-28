@@ -11,7 +11,8 @@ exports.main = async (params, db) => {
   // 提取分页参数和查询条件
   const pageNo = params.pageNo || 1;
   const pageSize = params.pageSize || 10;
-  const { yibenid, name, phoneNumber } = params; // Added role to filter fields
+  const condition = params.condition || {}; // Use params.condition
+  const { yibenid, name, phoneNumber } = condition; // Destructure from condition
 
   // 计算分页偏移量
   const skip = (pageNo - 1) * pageSize;
