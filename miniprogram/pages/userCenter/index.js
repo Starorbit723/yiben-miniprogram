@@ -20,6 +20,7 @@ Page({
       age: "",
       point: "",
     },
+    schoolid: 1,
     lastUpdate: '',
     questionnaireid: ''
   },
