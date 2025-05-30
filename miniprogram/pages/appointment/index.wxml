@@ -1,45 +1,25 @@
 <!--index.wxml-->
 <view class="container">
   <view class="title">尊敬的家长，请选择您要预约的方式</view>
-  <yb-button class="single-btn" bindtap="gotoSingleAppointment" btnText="单人预约" width="600" height="80" fontSize="34" fontWeight="700"></yb-button>
-  <yb-button class="tuan-btn" bindtap="gotoGroupAppointment" btnText="拼团预约" width="600" height="80" fontSize="34" fontWeight="700"></yb-button>
+  <yb-button class="single-btn" bindtap="gotoSingleAppointment" btnText="单人预约 39.9元/人" width="600" height="80" fontSize="34" fontWeight="700"></yb-button>
+  <yb-button class="tuan-btn" bindtap="gotoGroupAppointment" btnText="拼团预约 9.9元~29.9元/人" width="600" height="80" fontSize="34" fontWeight="700"></yb-button>
   <view class="shuoming" bindtap="openModal">点击此处查看: 拼团优惠须知</view>
-  <image class="bg-img" src="../../images/bg_yiben_logo.png"></image>
+  <image class="bg-img" src="https://636c-cloud1-0gvvdaq4c40b8f74-1351667792.tcb.qcloud.la/uploads/1748590142287-bg_yiben_logo.png?sign=1daf11bb0c1d6a543016fbc306ec8b01&t=1748590142"></image>
   <!--modal-->
   <view class="modal-content" wx:if="{{showModal}}">
     <view class="modal-mask" bindtap="closeModal"></view>
     <view class="tips-modal">
       <view class="tips-title">团购须知</view>
       <view class="scroll-inner">
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
-        <view>111123333333332311233333333333333333333333333</view>
+        <text>
+          拼团参与试听可享受更多优惠哦！\n
+          单人预约价格：39.9元/人\n
+          拼团规则：2人以上即可成团报名参与预约试听，每团最多4位成员\n
+          参团人数越多，价格更加优惠~\n
+          2人拼团：29.9元/人\n
+          3人拼团：19.9元/人\n
+          4人拼团：9.9元/人\n
+        </text>
       </view>
       <image class="close_icon" src="../../images/icons/yb_close_icon.png" bindtap="closeModal"></image>
     </view>

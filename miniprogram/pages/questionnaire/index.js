@@ -132,7 +132,7 @@ Page({
    */
   onLoad(options) {
     this.setData({
-      questionnaireid: 'CcmcepjFc4iPM0yz',
+      questionnaireid: options.questionnaireid,
     });
     this.getQuestionById();
   },

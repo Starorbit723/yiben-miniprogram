@@ -80,6 +80,7 @@ page {
   overflow-x: hidden;
   overflow-y: scroll;
   height: 920rpx;
+  font-size: 28rpx;
 }
 .close_icon{
   display: block;

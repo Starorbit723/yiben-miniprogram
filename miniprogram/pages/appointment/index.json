@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "yb-button": "/components/ybButton/index",
-    "yb-tester": "/components/ybTester/index"
+    "yb-button": "/components/ybButton/index"
   }
 }

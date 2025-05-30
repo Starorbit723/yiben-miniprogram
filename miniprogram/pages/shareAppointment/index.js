@@ -47,13 +47,13 @@ Page({
     return {
       title: '快来参加壹本英语体验课吧！多人拼团享优惠',
       path: `/pages/otherAppointment/index?shareFrom=friend&bookid=${this.data.bookid}`,
-      imageUrl: '../../images/shareImg.png',
+      imageUrl: 'https://636c-cloud1-0gvvdaq4c40b8f74-1351667792.tcb.qcloud.la/uploads/1748590157239-shareImg.png?sign=998210867d919d0dbaaa3926da19393d&t=1748590157',
     };
   },
   onShareTimeline() {
     return {
       title: '快来参加壹本英语体验课吧！多人拼团享优惠',
-      imageUrl: '../../images/shareImg.png',
+      imageUrl: 'https://636c-cloud1-0gvvdaq4c40b8f74-1351667792.tcb.qcloud.la/uploads/1748590157239-shareImg.png?sign=998210867d919d0dbaaa3926da19393d&t=1748590157',
       query: `shareFrom=pyq&bookid=${this.data.bookid}`
     };
   },

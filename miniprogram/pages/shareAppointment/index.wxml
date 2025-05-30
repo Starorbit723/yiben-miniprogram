@@ -6,7 +6,7 @@
     <yb-step stepList="{{stepList}}" currentStep="2"></yb-step>
   </view>
   <button class="share-btn" open-type="share">点击此处分享</button>
-  <image class="bg-img" src="../../images/bg_yiben_logo.png"></image>
+  <image class="bg-img" src="https://636c-cloud1-0gvvdaq4c40b8f74-1351667792.tcb.qcloud.la/uploads/1748590142287-bg_yiben_logo.png?sign=1daf11bb0c1d6a543016fbc306ec8b01&t=1748590142"></image>
   <!--调试工具-->
   <!-- <yb-tester text="{{testConsole}}"></yb-tester> -->
 </view>
