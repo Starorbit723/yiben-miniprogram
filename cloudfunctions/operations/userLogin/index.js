@@ -84,7 +84,8 @@ exports.main = async (params, db) => {
         unionid: UNIONID || '',
         children: [],
         point: 0,
-        userType: 1  // 1: 客户, 2: 员工
+        userType: 1,  // 1: 客户, 2: 员工
+        createdAt: new Date()  // 用户首次登录小程序的日期
       };
       
       const addResult = await userCollection.add({
