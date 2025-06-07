@@ -1,6 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class="title">尊敬的家长，请选择您要预约的方式</view>
+  <view class="subtitle">【到场后缴费，线上预约不会收取您任何费用】</view>
   <yb-button class="single-btn" bindtap="gotoSingleAppointment" btnText="单人预约 39.9元/人" width="600" height="80" fontSize="34" fontWeight="700"></yb-button>
   <yb-button class="tuan-btn" bindtap="gotoGroupAppointment" btnText="拼团预约 9.9元~29.9元/人" width="600" height="80" fontSize="34" fontWeight="700"></yb-button>
   <view class="shuoming" bindtap="openModal">点击此处查看: 拼团优惠须知</view>
@@ -13,12 +14,14 @@
       <view class="scroll-inner">
         <text>
           拼团参与试听可享受更多优惠哦！\n
+          到场缴费，线上不会收取您任何费用 \n
           单人预约价格：39.9元/人\n
           拼团规则：2人以上即可成团报名参与预约试听，每团最多4位成员\n
           参团人数越多，价格更加优惠~\n
           2人拼团：29.9元/人\n
           3人拼团：19.9元/人\n
           4人拼团：9.9元/人\n
+          拼团试听费用以实际到场人数为准
         </text>
       </view>
       <image class="close_icon" src="../../images/icons/yb_close_icon.png" bindtap="closeModal"></image>

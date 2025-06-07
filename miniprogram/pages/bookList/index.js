@@ -1,5 +1,5 @@
 const app = getApp();
-const { schoolNameShow, bookTypeName, formatDate } = require("../../utils/common.js");
+const { schoolNameShow, bookTypeName, formatDate, encryptPhoneNumber } = require("../../utils/common.js");
 
 Page({
   /**
@@ -52,11 +52,23 @@ Page({
         item.matchTeacher = item.matchTeacher || '待分配';
         item.lessonTimeShow = item.lessonTime ? formatDate(item.lessonTime) : '待校区确认';
         item.lessonRoom =  item.lessonRoom || '待校区确认';
+        item.ownerPhoneShow = encryptPhoneNumber(item.ownerPhone);
+        if (item.bookType === 2 && item.groupInfoList.length > 0) {
+          item.groupInfoList.forEach(item2 => {
+            item2.memberPhoneShow = encryptPhoneNumber(item2.memberPhone);
+          });
+        }
       });
       console.log('formate list', list);
       return list;
     }
     return [];
+  },
+  gotoShare(e) {
+    console.log(e.target.dataset.bookid);
+    wx.navigateTo({
+      url: `/pages/shareAppointment/index?bookid=${e.target.dataset.bookid}`,
+    });
   },
   /**
    * 生命周期函数--监听页面加载

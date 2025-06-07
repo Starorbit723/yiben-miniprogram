@@ -39,7 +39,7 @@
           data-index="{{index}}"
           value="{{item.age}}"
           type="number"
-          maxlength="2"></input>
+          maxlength="4"></input>
       </view>
       <view class="input-box">
         <view class="label">学生性别</view>

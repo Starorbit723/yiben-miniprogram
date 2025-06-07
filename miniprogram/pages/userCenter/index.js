@@ -19,6 +19,8 @@ Page({
       nickName: "",
       age: "",
       point: "",
+      childrenAgeShow: '',
+      companionship: ''
     },
     schoolid: 1,
     lastUpdate: '',
@@ -72,13 +74,14 @@ Page({
       url: `/pages/connectUs/index`,
     });
   },
-  getUserInfo(code) {
-    console.log('getUserInfo', code);
-    this.setData({
-      code: code
-    })
-    this.getUserProfile();
-  },
+  // getUserInfo(code) {
+  //   console.log('getUserInfo', code);
+  //   console.log('this ', this);
+  //   this.setData({
+  //     code: code
+  //   })
+  //   this.getUserProfile();
+  // },
   getUserProfile() {
     console.log('getUserProfile');
     wx.getUserProfile({
@@ -195,9 +198,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    this.setData({
-      userInfo: app.globalData.userInfo
-    });
     // 已登录情况下，获取全部用户信息，用户数据矫正
     if (app.globalData.userInfo.yibenid) {
       wx.cloud.callFunction({
@@ -206,18 +206,37 @@ Page({
           type: 'userOneInfo',
           data: {
             yibenid: app.globalData.userInfo.yibenid
-          },
+          }, 
         }
       }).then(res => {
         console.log('userOneInfo result:', res);
+        const waitRes = res.result.data;
+        if (waitRes.children && waitRes.children.length > 0) {
+          let str = '';
+          waitRes.children.forEach((ele, index) => {
+            if (ele.age && index === 0 ) {
+              str += `${ele.age}岁`;
+            } else {
+              str += ` | ${ele.age}岁`;
+            };
+          });
+          waitRes.childrenAgeShow = str;
+        }
+        if (waitRes.createdAt) {
+          const day = Math.ceil(((waitRes.createdAt - new Date().getTime()) / 86400000));
+          waitRes.companionship = `壹本英语已经陪伴您${day}天`;
+        } else {
+          waitRes.companionship = `壹本英语已经陪伴您1天`;
+        }
         this.setData({
-          userInfo: app.globalData.userInfo
+          userInfo: waitRes
         });
+        this.getUserProfile();
+        // getWxCode(this.getUserInfo);
         console.log('update userInfo', this.data.userInfo);
       }).catch(err => {
         console.error('userOneInfo error:', err)
       });
-      getWxCode(this.getUserInfo);
     }
     
   },

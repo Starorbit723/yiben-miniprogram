@@ -39,6 +39,7 @@
 }
 .info-box.m3{
   top: 85rpx;
+  letter-spacing: 1rpx;
 }
 .info-box .title{
   float: left;

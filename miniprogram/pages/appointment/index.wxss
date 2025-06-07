@@ -16,13 +16,21 @@ page {
   text-align: center;
   font-weight: 700;
 }
+.subtitle{
+  height: 40rpx;
+  padding-top: 10rpx;
+  font-family: '黑体';
+  color: #FFF;
+  text-align: center;
+  font-size: 24rpx;
+}
 .single-btn{
   display: block;
-  margin: 60rpx auto 0;
+  margin: 50rpx auto 0;
 }
 .tuan-btn{
   display: block;
-  margin: 70rpx auto 0;
+  margin: 50rpx auto 0;
 }
 .shuoming{
   margin: 50rpx auto 0;

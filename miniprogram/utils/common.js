@@ -9,7 +9,7 @@ const validateUsername = function(name) {
 };
 
 const validateAge = function(age) {
-  const regex = /^([1-9]|1[0-8])$/;
+  const regex = /^(?:[1-9]\d*|0)(?:\.5)?$/;
   return regex.test(age);
 }
 
@@ -43,12 +43,12 @@ const bookTypeName = function(type) {
 }
 
 const bookStatus = [
-  { id: 0, name: '拼团中', color: '#F00' },
-  { id: 1, name: '已预约', color: '#F00' },
-  { id: 2, name: '校区确认中', color: '#F00' },
-  { id: 3, name: '待使用', color: '#F00' },
-  { id: 4, name: '已使用', color: '#F00' },
-  { id: 5, name: '已取消', color: '#F00' },
+  { id: 0, name: '拼团中', color: '#F56C6C' },
+  { id: 1, name: '已预约', color: '#67C23A' },
+  { id: 2, name: '校区确认中', color: '#409EFF' },
+  { id: 3, name: '待使用', color: '#E6A23C' },
+  { id: 4, name: '已使用', color: '#67C23A' },
+  { id: 5, name: '已取消', color: '#909399' },
 ];
 
 const schoolOptions = [
@@ -80,6 +80,10 @@ const formatDate = function(dateString) {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
+const encryptPhoneNumber = function(phone) {
+  return phone.slice(0, 3) + "****" + phone.slice(7);
+}
+
 module.exports = {
   validatePhoneNumber,
   validateUsername,
@@ -91,4 +95,5 @@ module.exports = {
   schoolOptions,
   schoolNameShow,
   formatDate,
+  encryptPhoneNumber
 };

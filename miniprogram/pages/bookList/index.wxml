@@ -14,6 +14,7 @@
         <view class="label-text">授课老师：{{item.matchTeacher}}</view>
         <view class="label-text">授课时间：{{item.lessonTimeShow}}</view>
         <view class="label-text">授课教室：{{item.lessonRoom}}</view>
+        <view wx:if="{{item.bookType === 2 && item.status === 0}}" class="share-btn" bindtap="gotoShare" data-bookid="{{item.bookid}}">转发邀请</view>
       </view>
       <view class="strench-content" wx:if="{{item.bookType === 2}}">
         <!-- 子订单 -->
@@ -21,7 +22,7 @@
           <view class="hide-item" wx:for="{{item.groupInfoList}}" wx:for-item="item2" wx:key="{{item2}}">
             <view class="hidelabel-text">家长姓名：{{item2.memberName}}</view>
             <view class="hidelabel-text">学生姓名：{{item2.memberChildren}}</view>
-            <view class="hidelabel-text">联系方式：{{item2.memberPhone}}</view>
+            <view class="hidelabel-text">联系方式：{{item2.memberPhoneShow}}</view>
           </view>
         </view>
         <view class="toggle-button-zone" wx:if="{{!item.strench}}" bind:tap="openDetail" data-index="{{index}}">
@@ -34,7 +35,7 @@
         </view>
       </view>
       <view class="bottom">
-        <view class="order-people">订单人：{{item.ownerName}} {{item.ownerPhone}}</view>
+        <view class="order-people">订单人：{{item.ownerName}} {{item.ownerPhoneShow}}</view>
         <view class="order-school">{{item.schoolName}}</view>
       </view>
     </view>

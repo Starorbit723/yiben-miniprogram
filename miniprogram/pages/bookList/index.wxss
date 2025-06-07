@@ -40,6 +40,19 @@
   margin: 10rpx 20rpx;
   font-size: 26rpx;
 }
+.share-btn{
+  position: absolute;
+  top: 150rpx;
+  right: 0;
+  width: 120rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  color: #FFF;
+  font-size: 20rpx;
+  background-color: #ec4b7d;
+}
 .order-status-hook{
   position: absolute;
   top: 0;

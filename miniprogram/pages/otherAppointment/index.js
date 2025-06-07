@@ -1,5 +1,5 @@
 const app = getApp();
-const { validatePhoneNumber, validateUsername } = require("../../utils/common.js");
+const { validatePhoneNumber, validateUsername, encryptPhoneNumber } = require("../../utils/common.js");
 
 Page({
   data: {
@@ -10,6 +10,7 @@ Page({
     // 主订单数据
     ownerName: '',
     ownerPhone: '',
+    ownerPhoneShow: '',
     schoolid: 1,
     nowMembersNum: '',
     // 表单数据
@@ -79,6 +80,7 @@ Page({
           this.setData({
             ownerName: res.result.data.list[0].ownerName,
             ownerPhone: res.result.data.list[0].ownerPhone,
+            ownerPhoneShow: encryptPhoneNumber(res.result.data.list[0].ownerPhone),
             schoolid: res.result.data.list[0].schoolid,
             nowMembersNum: res.result.data.list[0].groupInfoList.length + '人',
           });

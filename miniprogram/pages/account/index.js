@@ -189,7 +189,7 @@ Page({
    */
   onLoad(options) {
     wx.setNavigationBarTitle({
-      title: '账号管理'
+      title: '学生信息'
     });
     console.log('userInfo', app.globalData.userInfo);
     this.setData({

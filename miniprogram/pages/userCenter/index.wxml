@@ -15,15 +15,14 @@
     <view class="info-box m2">
       <view class="title">年龄：</view>
       <view class="text">
-        <view wx:if="{{userInfo.age}}">{{userInfo.age}}</view>
-        <view wx:if="{{!userInfo.age}}">-</view>
+        <view wx:if="{{userInfo.childrenAgeShow}}">{{userInfo.childrenAgeShow}}</view>
+        <view wx:if="{{!userInfo.childrenAgeShow}}">-</view>
       </view>
     </view>
     <view class="info-box m3">
-      <view class="title">积分：</view>
       <view class="text">
-        <view wx:if="{{userInfo.point >= 0}}">{{userInfo.point}}</view>
-        <view wx:else>-</view>
+        <view wx:if="{{userInfo.companionship}}">{{userInfo.companionship}}</view>
+        <view wx:else>登录后可查看更多信息</view>
       </view>
     </view>
     <view class="btn-zone" wx:if="{{!userInfo.yibenid}}">
@@ -31,7 +30,7 @@
     </view>
   </view>
   <view class="enter-label" style="margin-top: 60rpx;" bindtap="gotoAccount">
-    <view>账号管理</view>
+    <view>学生信息</view>
     <image class="icon" src="../../images/icons/yb_rightarrow_icon.png"></image>
   </view>
   <view class="enter-label" style="margin-top: 20rpx;" bindtap="gotoOrderList">

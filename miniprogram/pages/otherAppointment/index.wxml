@@ -11,7 +11,7 @@
     </view>
     <view class="input-text-box">
       <view class="label">联系方式</view>
-      <view class="yb-input-text">{{ownerPhone}}</view>
+      <view class="yb-input-text">{{ownerPhoneShow}}</view>
     </view>
     <view class="input-text-box">
       <view class="label">当前参团</view>
